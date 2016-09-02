@@ -12,4 +12,28 @@
      doing won't destroy their machine
 
 *Free Culture:*
+?????????????????????/
+
+
+
+*Regex Practice:*
+<img src="./PracticeRegex/Practice1.jpg" alt="Practice 1" height="200">
+
+<img src="./PracticeRegex/Practice1-1.jpg" alt="Practice 1.1" height="200">
+
+<img src="./PracticeRegex/Practice2.jpg" alt="Practice 2" height="200">
+
+<img src="./PracticeRegex/Practice3.jpg" alt="Practice 3" height="200">
+
+<img src="./PracticeRegex/Practice4.jpg" alt="Practice 4" height="200">
+
+<img src="./PracticeRegex/Practice5.jpg" alt="Practice 5" height="200">
+
+<img src="./PracticeRegex/Practice6.jpg" alt="Practice 6" height="200">
+
+<img src="./PracticeRegex/Practice6.jpg" alt="Practice 7" height="200">
+
+<img src="./PracticeRegex/RegexGame_Beginner.jpg" alt="Regex Game" height="200">
+
+
 
