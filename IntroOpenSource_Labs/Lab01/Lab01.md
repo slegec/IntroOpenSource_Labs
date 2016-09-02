@@ -17,6 +17,7 @@
 
 
 *Regex Practice:*
+
 <img src="./PracticeRegex/Practice1.jpg" alt="Practice 1" height="200">
 
 <img src="./PracticeRegex/Practice1-1.jpg" alt="Practice 1.1" height="200">
@@ -33,7 +34,7 @@
 
 <img src="./PracticeRegex/Practice6.jpg" alt="Practice 7" height="200">
 
-<img src="./PracticeRegex/RegexGame_Beginner.jpg" alt="Regex Game" height="200">
+<img src="./PracticeRegex/RegexGame_Beginner.jpg" alt="Regex Game" height="300">
 
 
 
