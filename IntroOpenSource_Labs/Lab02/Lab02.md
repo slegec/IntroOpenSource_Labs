@@ -34,5 +34,24 @@ to be able to optimize this for your use.  Hence why the GPL license allows this
 
 
 
+*RCOS Projects*
+
+| Website   | License Present | License    |
+|:---------:|:---------------:|:----------:|
+| https://github.com/wtg/shuttle_tracking_2 | Yes | MIT https://opensource.org/licenses/MIT |
+| https://github.com/Submitty/Submitty | Yes | BSD-3 https://opensource.org/licenses/BSD-3-Clause |
+| https://github.com/wtg/RPI_Tours_Server | Yes | MIT https://opensource.org/licenses/MIT |
+| https://github.com/copperwater/yacs | Yes | MIT https://opensource.org/licenses/MIT |
+| https://github.com/samuelyuan/GoMuellerWeb | Yes | MIT https://opensource.org/licenses/MIT |
+
+
+
+
+
+
+
+
+
+
 
 
