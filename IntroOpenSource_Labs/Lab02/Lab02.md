@@ -30,11 +30,24 @@ machines to be running a customized OS/software that is specifically for your co
 to be able to optimize this for your use.  Hence why the GPL license allows this.
 
 
+*6. Choose a license*
+
+
+
+*7. Discuss advantages of GPL, LGPL, and Apache/BSD*
+
+
+
+*8. Create a repository*
+
+
+
+*9. About choosing a project*
 
 
 
 
-*RCOS Projects*
+*10. RCOS Projects*
 
 | Website   | License Present | License    |
 |:----------|:----------------|:-----------|
@@ -43,15 +56,5 @@ to be able to optimize this for your use.  Hence why the GPL license allows this
 | https://github.com/wtg/RPI_Tours_Server | Yes | MIT https://opensource.org/licenses/MIT |
 | https://github.com/copperwater/yacs | Yes | MIT https://opensource.org/licenses/MIT |
 | https://github.com/samuelyuan/GoMuellerWeb | Yes | MIT https://opensource.org/licenses/MIT |
-
-
-
-
-
-
-
-
-
-
 
 
