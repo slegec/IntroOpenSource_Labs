@@ -23,3 +23,7 @@ Link to repository: https://github.com/slegec/lab3part1
 
 Link to repository: https://github.com/slegec/courseproject
 
+5.)
+
+Link to repository: https://github.com/demsks/Story-Fall2016/tree/master
+
