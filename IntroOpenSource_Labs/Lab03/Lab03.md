@@ -12,3 +12,14 @@ Link to repository: https://github.com/slegec/lab3part1
 
 *Part 2*
 
+4.)
+
+<img src="./LearnGitBranching.jpg" alt="Learn Git Branching" height="300">
+
+
+*Part 3*
+
+4.)
+
+Link to repository: https://github.com/slegec/courseproject
+
