@@ -3,19 +3,19 @@
 1.) https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212927
 
 Fixed 'can not' vs. 'cannot' inconsistencies
-[Can not][Cannot.diff]
+[Can not](Cannot.diff)
 
 
 2.) https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212932
 
 Fixed missing commas in table for consistency
-[Inconsistent Commas][InconsistentCommas.diff]
+[Inconsistent Commas](InconsistentCommas.diff)
 
 
 3.) https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212935
 
 Fixed misspelled 'synchronized'
-[Synchronized File][SynchronizedMisspelled.diff]
+[Synchronized File](SynchronizedMisspelled.diff)
 
 
 Maintaining good documentation is important because it helps the user understand
