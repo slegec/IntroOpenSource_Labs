@@ -1,0 +1,1948 @@
+Index: chapter.xml
+===================================================================
+--- chapter.xml	(revision 49425)
++++ chapter.xml	(working copy)
+@@ -24,51 +24,51 @@
+ 
+     <itemizedlist>
+       <listitem>
+-	<para>How to add additional hard disks to a &os;
+-	  system.</para>
++        <para>How to add additional hard disks to a &os;
++          system.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to grow the size of a disk's partition on
+-	  &os;.</para>
++        <para>How to grow the size of a disk's partition on
++          &os;.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to configure &os; to use <acronym>USB</acronym>
+-	  storage devices.</para>
++        <para>How to configure &os; to use <acronym>USB</acronym>
++          storage devices.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to use <acronym>CD</acronym> and
+-	  <acronym>DVD</acronym> media on a &os; system.</para>
++        <para>How to use <acronym>CD</acronym> and
++          <acronym>DVD</acronym> media on a &os; system.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to use the backup programs available under
+-	  &os;.</para>
++        <para>How to use the backup programs available under
++          &os;.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to set up memory disks.</para>
++        <para>How to set up memory disks.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>What file system snapshots are and how to use them
+-	  efficiently.</para>
++        <para>What file system snapshots are and how to use them
++          efficiently.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to use quotas to limit disk space usage.</para>
++        <para>How to use quotas to limit disk space usage.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to encrypt disks and swap to secure them against
+-	  attackers.</para>
++        <para>How to encrypt disks and swap to secure them against
++          attackers.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to configure a highly available storage
+-	  network.</para>
++        <para>How to configure a highly available storage
++          network.</para>
+       </listitem>
+     </itemizedlist>
+ 
+@@ -76,8 +76,8 @@
+ 
+     <itemizedlist>
+       <listitem>
+-	<para>Know how to <link linkend="kernelconfig">configure and
+-	    install a new &os; kernel</link>.</para>
++        <para>Know how to <link linkend="kernelconfig">configure and
++            install a new &os; kernel</link>.</para>
+       </listitem>
+     </itemizedlist>
+   </sect1>
+@@ -87,13 +87,13 @@
+       <title>Adding Disks</title>
+ 
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>David</firstname>
+-	    <surname>O'Brien</surname>
+-	  </personname>
+-	  <contrib>Originally contributed by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>David</firstname>
++            <surname>O'Brien</surname>
++          </personname>
++          <contrib>Originally contributed by </contrib>
++        </author>
+       </authorgroup>
+     </info>
+ 
+@@ -122,16 +122,16 @@
+ 
+     <para>For this example, a single large partition will be created
+       on the new disk.  The <link
+-	xlink:href="http://en.wikipedia.org/wiki/GUID_Partition_Table">
+-	<acronym>GPT</acronym></link> partitioning scheme will be
++        xlink:href="http://en.wikipedia.org/wiki/GUID_Partition_Table">
++        <acronym>GPT</acronym></link> partitioning scheme will be
+       used in preference to the older and less versatile
+       <acronym>MBR</acronym> scheme.</para>
+ 
+     <note>
+       <para>If the disk to be added is not blank, old partition
+-	information can be removed with
+-	<command>gpart delete</command>.  See &man.gpart.8; for
+-	details.</para>
++        information can be removed with
++        <command>gpart delete</command>.  See &man.gpart.8; for
++        details.</para>
+     </note>
+ 
+     <para>The partition scheme is created, and then a single partition
+@@ -169,7 +169,7 @@
+       <filename>/etc/fstab</filename> so the new disk will be mounted
+       automatically at startup:</para>
+ 
+-    <programlisting>/dev/ada1p1	/newdisk	ufs	rw	2	2</programlisting>
++    <programlisting>/dev/ada1p1 /newdisk        ufs     rw      2       2</programlisting>
+ 
+     <para>The new disk can be mounted manually, without restarting the
+       system:</para>
+@@ -182,13 +182,13 @@
+       <title>Resizing and Growing Disks</title>
+ 
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Allan</firstname>
+-	    <surname>Jude</surname>
+-	  </personname>
+-	  <contrib>Originally contributed by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Allan</firstname>
++            <surname>Jude</surname>
++          </personname>
++          <contrib>Originally contributed by </contrib>
++        </author>
+       </authorgroup>
+     </info>
+ 
+@@ -229,13 +229,13 @@
+ 
+     <note>
+       <para>If the disk was formatted with the <link
+-	  xlink:href="http://en.wikipedia.org/wiki/GUID_Partition_Table">
+-	<acronym>GPT</acronym></link> partitioning scheme, it may show
+-	as <quote>corrupted</quote> because the <acronym>GPT</acronym>
+-	backup partition table is no longer at the end of the
+-	drive.  Fix the backup
+-	partition table with
+-	<command>gpart</command>:</para>
++          xlink:href="http://en.wikipedia.org/wiki/GUID_Partition_Table">
++        <acronym>GPT</acronym></link> partitioning scheme, it may show
++        as <quote>corrupted</quote> because the <acronym>GPT</acronym>
++        backup partition table is no longer at the end of the
++        drive.  Fix the backup
++        partition table with
++        <command>gpart</command>:</para>
+ 
+       <screen>&prompt.root; <userinput>gpart recover <replaceable>ada0</replaceable></userinput>
+ ada0 recovered</screen>
+@@ -270,12 +270,12 @@
+ 
+     <warning>
+       <para>There is risk of data loss when modifying the partition
+-	table of a mounted file system.  It is best to perform the
+-	following steps on an unmounted file system while running from
+-	a live <acronym>CD-ROM</acronym> or <acronym>USB</acronym>
+-	device.  However, if absolutely necessary, a mounted file
+-	system can be  resized after disabling GEOM safety
+-	features:</para>
++        table of a mounted file system.  It is best to perform the
++        following steps on an unmounted file system while running from
++        a live <acronym>CD-ROM</acronym> or <acronym>USB</acronym>
++        device.  However, if absolutely necessary, a mounted file
++        system can be  resized after disabling GEOM safety
++        features:</para>
+ 
+       <screen>&prompt.root; <userinput>sysctl kern.geom.debugflags=16</userinput></screen>
+     </warning>
+@@ -309,8 +309,8 @@
+ 
+     <note>
+       <para>Growing a live <acronym>UFS</acronym> file system is only
+-	possible in &os; 10.0-RELEASE and later.  For earlier
+-	versions, the file system must not be mounted.</para>
++        possible in &os; 10.0-RELEASE and later.  For earlier
++        versions, the file system must not be mounted.</para>
+     </note>
+ 
+     <screen>&prompt.root; <userinput>growfs <replaceable>/dev/ada0p2</replaceable></userinput>
+@@ -330,13 +330,13 @@
+       <title><acronym>USB</acronym> Storage Devices</title>
+ 
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Marc</firstname>
+-	    <surname>Fonvieille</surname>
+-	  </personname>
+-	  <contrib>Contributed by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Marc</firstname>
++            <surname>Fonvieille</surname>
++          </personname>
++          <contrib>Contributed by </contrib>
++        </author>
+       </authorgroup>
+     </info>
+ 
+@@ -353,10 +353,10 @@
+ 
+     <note>
+       <para><acronym>USB</acronym> 3.0 support is not compatible with
+-	some hardware, including Haswell (Lynx point) chipsets.  If
+-	&os; boots with a <errorname>failed with error 19</errorname>
+-	message, disable xHCI/USB3 in the system
+-	<acronym>BIOS</acronym>.</para>
++        some hardware, including Haswell (Lynx point) chipsets.  If
++        &os; boots with a <errorname>failed with error 19</errorname>
++        message, disable xHCI/USB3 in the system
++        <acronym>BIOS</acronym>.</para>
+     </note>
+ 
+     <para>Support for <acronym>USB</acronym> storage devices is built
+@@ -364,16 +364,16 @@
+       kernel, be sure that the following lines are present in the
+       kernel configuration file:</para>
+ 
+-    <programlisting>device scbus	# SCSI bus (required for ATA/SCSI)
+-device da	# Direct Access (disks)
+-device pass	# Passthrough device (direct ATA/SCSI access)
+-device uhci	# provides USB 1.x support
+-device ohci	# provides USB 1.x support
+-device ehci	# provides USB 2.0 support
+-device xhci	# provides USB 3.0 support
+-device usb	# USB Bus (required)
+-device umass	# Disks/Mass storage - Requires scbus and da
+-device cd	# needed for CD and DVD burners</programlisting>
++    <programlisting>device scbus        # SCSI bus (required for ATA/SCSI)
++device da       # Direct Access (disks)
++device pass     # Passthrough device (direct ATA/SCSI access)
++device uhci     # provides USB 1.x support
++device ohci     # provides USB 1.x support
++device ehci     # provides USB 2.0 support
++device xhci     # provides USB 3.0 support
++device usb      # USB Bus (required)
++device umass    # Disks/Mass storage - Requires scbus and da
++device cd       # needed for CD and DVD burners</programlisting>
+ 
+     <para>&os; uses the &man.umass.4; driver which uses the
+       <acronym>SCSI</acronym> subsystem to access
+@@ -393,10 +393,10 @@
+       <title>Device Configuration</title>
+ 
+       <para>To test the <acronym>USB</acronym> configuration, plug in
+-	the <acronym>USB</acronym> device.  Use
+-	<command>dmesg</command> to confirm that the drive appears in
+-	the system message buffer.  It should look something like
+-	this:</para>
++        the <acronym>USB</acronym> device.  Use
++        <command>dmesg</command> to confirm that the drive appears in
++        the system message buffer.  It should look something like
++        this:</para>
+ 
+       <screen>umass0: &lt;STECH Simple Drive, class 0/0, rev 2.00/1.04, addr 3&gt; on usbus0
+ umass0:  SCSI over Bulk-Only; quirks = 0x0100
+@@ -409,110 +409,110 @@
+ da0: quirks=0x2&lt;NO_6_BYTE&gt;</screen>
+ 
+       <para>The brand, device node (<filename>da0</filename>), speed,
+-	and size will differ according to the device.</para>
++        and size will differ according to the device.</para>
+ 
+       <para>Since the <acronym>USB</acronym> device is seen as a
+-	<acronym>SCSI</acronym> one, <command>camcontrol</command> can
+-	be used to list the <acronym>USB</acronym> storage devices
+-	attached to the system:</para>
++        <acronym>SCSI</acronym> one, <command>camcontrol</command> can
++        be used to list the <acronym>USB</acronym> storage devices
++        attached to the system:</para>
+ 
+       <screen>&prompt.root; <userinput>camcontrol devlist</userinput>
+ &lt;STECH Simple Drive 1.04&gt;          at scbus4 target 0 lun 0 (pass3,da0)</screen>
+ 
+       <para>Alternately, <command>usbconfig</command> can be used to
+-	list the device.  Refer to &man.usbconfig.8; for more
+-	information about this command.</para>
++        list the device.  Refer to &man.usbconfig.8; for more
++        information about this command.</para>
+ 
+       <screen>&prompt.root; <userinput>usbconfig</userinput>
+ ugen0.3: &lt;Simple Drive STECH&gt; at usbus0, cfg=0 md=HOST spd=HIGH (480Mbps) pwr=ON (2mA)</screen>
+ 
+       <para>If the device has not been formatted, refer to <xref
+-	  linkend="disks-adding"/> for instructions on how to format
+-	and create partitions on the <acronym>USB</acronym> drive.  If
+-	the drive comes with a file system, it can be mounted by
+-	<systemitem class="username">root</systemitem> using the
+-	instructions in <xref linkend="mount-unmount"/>.</para>
++          linkend="disks-adding"/> for instructions on how to format
++        and create partitions on the <acronym>USB</acronym> drive.  If
++        the drive comes with a file system, it can be mounted by
++        <systemitem class="username">root</systemitem> using the
++        instructions in <xref linkend="mount-unmount"/>.</para>
+ 
+       <warning>
+-	<para>Allowing untrusted users to mount arbitrary media, by
+-	  enabling <varname>vfs.usermount</varname> as described
+-	  below, should not be considered safe from a security point
+-	  of view.  Most file systems were not built to safeguard
+-	  against malicious devices.</para>
++        <para>Allowing untrusted users to mount arbitrary media, by
++          enabling <varname>vfs.usermount</varname> as described
++          below, should not be considered safe from a security point
++          of view.  Most file systems were not built to safeguard
++          against malicious devices.</para>
+       </warning>
+ 
+       <para>To make the device mountable as a normal user, one
+-	solution is to make all users of the device a member of the
+-	<systemitem class="groupname">operator</systemitem> group
+-	using &man.pw.8;.  Next, ensure that <systemitem
+-	  class="groupname">operator</systemitem> is able to read and
+-	write the device by adding these lines to
+-	<filename>/etc/devfs.rules</filename>:</para>
++        solution is to make all users of the device a member of the
++        <systemitem class="groupname">operator</systemitem> group
++        using &man.pw.8;.  Next, ensure that <systemitem
++          class="groupname">operator</systemitem> is able to read and
++        write the device by adding these lines to
++        <filename>/etc/devfs.rules</filename>:</para>
+ 
+       <programlisting>[localrules=5]
+ add path 'da*' mode 0660 group operator</programlisting>
+ 
+       <note>
+-	<para>If internal <acronym>SCSI</acronym> disks are also
+-	  installed in the system, change the second line as
+-	  follows:</para>
++        <para>If internal <acronym>SCSI</acronym> disks are also
++          installed in the system, change the second line as
++          follows:</para>
+ 
+-	<programlisting>add path 'da[<replaceable>3</replaceable>-9]*' mode 0660 group operator</programlisting>
++        <programlisting>add path 'da[<replaceable>3</replaceable>-9]*' mode 0660 group operator</programlisting>
+ 
+-	<para>This will exclude the first three
+-	  <acronym>SCSI</acronym> disks (<filename>da0</filename> to
+-	  <filename>da2</filename>)from belonging to the <systemitem
+-	    class="groupname">operator</systemitem> group.  Replace
+-	  <replaceable>3</replaceable> with the number of internal
+-	  <acronym>SCSI</acronym> disks.  Refer to &man.devfs.rules.5;
+-	  for more information about this file.</para>
++        <para>This will exclude the first three
++          <acronym>SCSI</acronym> disks (<filename>da0</filename> to
++          <filename>da2</filename>)from belonging to the <systemitem
++            class="groupname">operator</systemitem> group.  Replace
++          <replaceable>3</replaceable> with the number of internal
++          <acronym>SCSI</acronym> disks.  Refer to &man.devfs.rules.5;
++          for more information about this file.</para>
+       </note>
+ 
+       <para>Next, enable the ruleset in
+-	<filename>/etc/rc.conf</filename>:</para>
++        <filename>/etc/rc.conf</filename>:</para>
+ 
+       <programlisting>devfs_system_ruleset="localrules"</programlisting>
+ 
+       <para>Then, instruct the system to allow regular users to mount
+-	file systems by adding the following line to
+-	<filename>/etc/sysctl.conf</filename>:</para>
++        file systems by adding the following line to
++        <filename>/etc/sysctl.conf</filename>:</para>
+ 
+       <programlisting>vfs.usermount=1</programlisting>
+ 
+       <para>Since this only takes effect after the next reboot, use
+-	<command>sysctl</command> to set this variable now:</para>
++        <command>sysctl</command> to set this variable now:</para>
+ 
+       <screen>&prompt.root; <userinput>sysctl vfs.usermount=1</userinput>
+ vfs.usermount: 0 -&gt; 1</screen>
+ 
+       <para>The final step is to create a directory where the file
+-	system is to be mounted.  This directory needs to be owned by
+-	the user that is to mount the file system.  One way to do that
+-	is for <systemitem class="username">root</systemitem> to
+-	create a subdirectory owned by that user as <filename
+-	  >/mnt/<replaceable>username</replaceable></filename>.
+-	In the following example, replace
+-	<replaceable>username</replaceable> with the login name of the
+-	user and <replaceable>usergroup</replaceable> with the user's
+-	primary group:</para>
++        system is to be mounted.  This directory needs to be owned by
++        the user that is to mount the file system.  One way to do that
++        is for <systemitem class="username">root</systemitem> to
++        create a subdirectory owned by that user as <filename
++          >/mnt/<replaceable>username</replaceable></filename>.
++        In the following example, replace
++        <replaceable>username</replaceable> with the login name of the
++        user and <replaceable>usergroup</replaceable> with the user's
++        primary group:</para>
+ 
+       <screen>&prompt.root; <userinput>mkdir /mnt/<replaceable>username</replaceable></userinput>
+ &prompt.root; <userinput>chown <replaceable>username</replaceable>:<replaceable>usergroup</replaceable> /mnt/<replaceable>username</replaceable></userinput></screen>
+ 
+       <para>Suppose a <acronym>USB</acronym> thumbdrive is plugged in,
+-	and a device <filename>/dev/da0s1</filename> appears.  If the
+-	device is formatted with a <acronym>FAT</acronym> file system,
+-	the user can mount it using:</para>
++        and a device <filename>/dev/da0s1</filename> appears.  If the
++        device is formatted with a <acronym>FAT</acronym> file system,
++        the user can mount it using:</para>
+ 
+       <screen>&prompt.user; <userinput>mount -t msdosfs -o -m=644,-M=755 /dev/da0s1 /mnt/<replaceable>username</replaceable></userinput></screen>
+ 
+       <para>Before the device can be unplugged, it
+-	<emphasis>must</emphasis> be unmounted first:</para>
++        <emphasis>must</emphasis> be unmounted first:</para>
+ 
+       <screen>&prompt.user; <userinput>umount /mnt/<replaceable>username</replaceable></userinput></screen>
+ 
+       <para>After device removal, the system message buffer will show
+-	messages similar to the following:</para>
++        messages similar to the following:</para>
+ 
+       <screen>umass0: at uhub3, port 2, addr 3 (disconnected)
+ da0 at umass-sim0 bus 0 scbus4 target 0 lun 0
+@@ -524,38 +524,38 @@
+       <title>Automounting Removable Media</title>
+ 
+       <note>
+-	<para>&man.autofs.5; supports automatic mounting of
+-	  removable media starting with &os;&nbsp;10.2-RELEASE.</para>
++        <para>&man.autofs.5; supports automatic mounting of
++          removable media starting with &os;&nbsp;10.2-RELEASE.</para>
+       </note>
+ 
+       <para><acronym>USB</acronym> devices can be automatically
+-	mounted by uncommenting this line in
+-	<filename>/etc/auto_master</filename>:</para>
++        mounted by uncommenting this line in
++        <filename>/etc/auto_master</filename>:</para>
+ 
+-      <screen>/media		-media		-nosuid</screen>
++      <screen>/media            -media          -nosuid</screen>
+ 
+       <para>Then add these lines to
+-	<filename>/etc/devd.conf</filename>:</para>
++        <filename>/etc/devd.conf</filename>:</para>
+ 
+       <screen>notify 100 {
+-	match "system" "GEOM";
+-	match "subsystem" "DEV";
+-	action "/usr/sbin/automount -c";
++        match "system" "GEOM";
++        match "subsystem" "DEV";
++        action "/usr/sbin/automount -c";
+ };</screen>
+ 
+       <para>Reload the configuration if &man.autofs.5;
+-	and &man.devd.8; are already running:</para>
++        and &man.devd.8; are already running:</para>
+ 
+       <screen>&prompt.root; <userinput>service automount reload</userinput>
+ &prompt.root; <userinput>service devd restart</userinput></screen>
+ 
+       <para>&man.autofs.5; can be set to start at boot by adding this
+-	line to <filename>/etc/rc.conf</filename>:</para>
++        line to <filename>/etc/rc.conf</filename>:</para>
+ 
+       <programlisting>autofs_enable="YES"</programlisting>
+ 
+       <para>&man.autofs.5; requires &man.devd.8; to be enabled, as it
+-	is by default.</para>
++        is by default.</para>
+ 
+       <para>Start the services immediately with:</para>
+ 
+@@ -565,20 +565,20 @@
+ &prompt.root; <userinput>service devd start</userinput></screen>
+ 
+       <para>Each file system that can be automatically mounted appears
+-	as a directory in <filename>/media/</filename>.  The directory
+-	is named after the file system label.  If the label is
+-	missing, the directory is named after the device node.</para>
++        as a directory in <filename>/media/</filename>.  The directory
++        is named after the file system label.  If the label is
++        missing, the directory is named after the device node.</para>
+ 
+       <para>The file system is transparently mounted on the first
+-	access, and unmounted after a period of inactivity.
+-	Automounted drives can also be unmounted manually:</para>
++        access, and unmounted after a period of inactivity.
++        Automounted drives can also be unmounted manually:</para>
+ 
+       <screen>&prompt.root; <userinput>automount -fu</userinput></screen>
+ 
+       <para>This mechanism is typically used for memory cards and
+-	<acronym>USB</acronym> memory sticks.  It can be used with
+-	any block device, including optical drives or
+-	<acronym>iSCSI</acronym> <acronym>LUN</acronym>s.</para>
++        <acronym>USB</acronym> memory sticks.  It can be used with
++        any block device, including optical drives or
++        <acronym>iSCSI</acronym> <acronym>LUN</acronym>s.</para>
+     </sect2>
+   </sect1>
+ 
+@@ -587,13 +587,13 @@
+       <title>Creating and Using <acronym>CD</acronym> Media</title>
+ 
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Mike</firstname>
+-	    <surname>Meyer</surname>
+-	  </personname>
+-	  <contrib>Contributed by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Mike</firstname>
++            <surname>Meyer</surname>
++          </personname>
++          <contrib>Contributed by </contrib>
++        </author>
+       </authorgroup>
+     </info>
+ 
+@@ -633,83 +633,83 @@
+ 
+     <sect2 xml:id="atapicam">
+       <info>
+-	<title>Supported Devices</title>
++        <title>Supported Devices</title>
+ 
+-	<authorgroup>
+-	  <author>
+-	    <personname>
+-	      <firstname>Marc</firstname>
+-	      <surname>Fonvieille</surname>
+-	    </personname>
+-	    <contrib>Contributed by </contrib>
+-	  </author>
+-	</authorgroup>
++        <authorgroup>
++          <author>
++            <personname>
++              <firstname>Marc</firstname>
++              <surname>Fonvieille</surname>
++            </personname>
++            <contrib>Contributed by </contrib>
++          </author>
++        </authorgroup>
+       </info>
+ 
+       <indexterm>
+-	<primary><acronym>CD</acronym> burner</primary>
+-	<secondary>ATAPI/CAM driver</secondary>
++        <primary><acronym>CD</acronym> burner</primary>
++        <secondary>ATAPI/CAM driver</secondary>
+       </indexterm>
+ 
+       <para>The <filename>GENERIC</filename> kernel provides support
+-	for <acronym>SCSI</acronym>,  <acronym>USB</acronym>, and
+-	<acronym>ATAPI</acronym> <acronym>CD</acronym> readers and
+-	burners.  If a custom kernel is used, the options that need to
+-	be present in the kernel configuration file vary by the type
+-	of device.</para>
++        for <acronym>SCSI</acronym>,  <acronym>USB</acronym>, and
++        <acronym>ATAPI</acronym> <acronym>CD</acronym> readers and
++        burners.  If a custom kernel is used, the options that need to
++        be present in the kernel configuration file vary by the type
++        of device.</para>
+ 
+       <para>For a <acronym>SCSI</acronym> burner, make sure these
+-	options are present:</para>
++        options are present:</para>
+ 
+-      <programlisting>device scbus	# SCSI bus (required for ATA/SCSI)
+-device da	# Direct Access (disks)
+-device pass	# Passthrough device (direct ATA/SCSI access)
+-device cd	# needed for CD and DVD burners</programlisting>
++      <programlisting>device scbus      # SCSI bus (required for ATA/SCSI)
++device da       # Direct Access (disks)
++device pass     # Passthrough device (direct ATA/SCSI access)
++device cd       # needed for CD and DVD burners</programlisting>
+ 
+       <para>For a <acronym>USB</acronym> burner, make sure these
+-	options are present:</para>
++        options are present:</para>
+ 
+-      <programlisting>device scbus	# SCSI bus (required for ATA/SCSI)
+-device da	# Direct Access (disks)
+-device pass	# Passthrough device (direct ATA/SCSI access)
+-device cd	# needed for CD and DVD burners
+-device uhci	# provides USB 1.x support
+-device ohci	# provides USB 1.x support
+-device ehci	# provides USB 2.0 support
+-device xhci	# provides USB 3.0 support
+-device usb	# USB Bus (required)
+-device umass	# Disks/Mass storage - Requires scbus and da</programlisting>
++      <programlisting>device scbus      # SCSI bus (required for ATA/SCSI)
++device da       # Direct Access (disks)
++device pass     # Passthrough device (direct ATA/SCSI access)
++device cd       # needed for CD and DVD burners
++device uhci     # provides USB 1.x support
++device ohci     # provides USB 1.x support
++device ehci     # provides USB 2.0 support
++device xhci     # provides USB 3.0 support
++device usb      # USB Bus (required)
++device umass    # Disks/Mass storage - Requires scbus and da</programlisting>
+ 
+       <para>For an <acronym>ATAPI</acronym> burner, make sure these
+-	options are present:</para>
++        options are present:</para>
+ 
+-      <programlisting>device ata	# Legacy ATA/SATA controllers
+-device scbus	# SCSI bus (required for ATA/SCSI)
+-device pass	# Passthrough device (direct ATA/SCSI access)
+-device cd	# needed for CD and DVD burners</programlisting>
++      <programlisting>device ata        # Legacy ATA/SATA controllers
++device scbus    # SCSI bus (required for ATA/SCSI)
++device pass     # Passthrough device (direct ATA/SCSI access)
++device cd       # needed for CD and DVD burners</programlisting>
+ 
+       <note>
+-	<para>On &os; versions prior to 10.x, this line is also
+-	  needed in the kernel configuration file if the burner is an
+-	  <acronym>ATAPI</acronym> device:</para>
++        <para>On &os; versions prior to 10.x, this line is also
++          needed in the kernel configuration file if the burner is an
++          <acronym>ATAPI</acronym> device:</para>
+ 
+-	<programlisting>device atapicam</programlisting>
++        <programlisting>device atapicam</programlisting>
+ 
+-	<para>Alternately, this driver can be loaded at boot time by
+-	  adding the following line to
+-	  <filename>/boot/loader.conf</filename>:</para>
++        <para>Alternately, this driver can be loaded at boot time by
++          adding the following line to
++          <filename>/boot/loader.conf</filename>:</para>
+ 
+-	<programlisting>atapicam_load="YES"</programlisting>
++        <programlisting>atapicam_load="YES"</programlisting>
+ 
+-	<para>This will require a reboot of the system as this driver
+-	  can only be loaded at boot time.</para>
++        <para>This will require a reboot of the system as this driver
++          can only be loaded at boot time.</para>
+       </note>
+ 
+       <para>To verify that &os; recognizes the device, run
+-	<command>dmesg</command> and look for an entry for the device.
+-	On systems prior to 10.x, the device name in the first line of
+-	the output will be <filename>acd0</filename> instead of
+-	<filename>cd0</filename>.</para>
++        <command>dmesg</command> and look for an entry for the device.
++        On systems prior to 10.x, the device name in the first line of
++        the output will be <filename>acd0</filename> instead of
++        <filename>cd0</filename>.</para>
+ 
+       <screen>&prompt.user; <userinput>dmesg | grep cd</userinput>
+ cd0 at ahcich1 bus 0 scbus1 target 0 lun 0
+@@ -723,24 +723,24 @@
+       <title>Burning a <acronym>CD</acronym></title>
+ 
+       <para>In &os;, <command>cdrecord</command> can be used to burn
+-	<acronym>CD</acronym>s.  This command is installed with the
+-	<package>sysutils/cdrtools</package> package or port.</para>
++        <acronym>CD</acronym>s.  This command is installed with the
++        <package>sysutils/cdrtools</package> package or port.</para>
+ 
+       <para>While <command>cdrecord</command> has many options, basic
+-	usage is simple.  Specify the name of the
+-	<acronym>ISO</acronym> file to burn and, if the system has
+-	multiple burner devices, specify the name of the device to
+-	use:</para>
++        usage is simple.  Specify the name of the
++        <acronym>ISO</acronym> file to burn and, if the system has
++        multiple burner devices, specify the name of the device to
++        use:</para>
+ 
+       <screen>&prompt.root; <userinput>cdrecord <replaceable>dev=device</replaceable> <replaceable>imagefile.iso</replaceable></userinput></screen>
+ 
+       <para>To determine the device name of the burner, use
+-	<option>-scanbus</option> which might produce results like
+-	this:</para>
++        <option>-scanbus</option> which might produce results like
++        this:</para>
+ 
+       <indexterm>
+-	<primary><acronym>CD-ROM</acronym>s</primary>
+-	<secondary>burning</secondary>
++        <primary><acronym>CD-ROM</acronym>s</primary>
++        <secondary>burning</secondary>
+       </indexterm>
+       <screen>&prompt.root; <userinput>cdrecord -scanbus</userinput>
+ ProDVD-ProBD-Clone 3.00 (amd64-unknown-freebsd10.0) Copyright (C) 1995-2010 J&ouml;rg Schilling
+@@ -765,124 +765,124 @@
+         1,7,0   107) *</screen>
+ 
+       <para>Locate the entry for the <acronym>CD</acronym> burner and
+-	use the three numbers separated by commas as the value for
+-	<option>dev</option>.  In this case, the Yamaha burner device
+-	is <literal>1,5,0</literal>, so the appropriate input to
+-	specify that device is <option>dev=1,5,0</option>.  Refer to
+-	the manual page for <command>cdrecord</command> for other ways
+-	to specify this value and for information on writing audio
+-	tracks and controlling the write speed.</para>
++        use the three numbers separated by commas as the value for
++        <option>dev</option>.  In this case, the Yamaha burner device
++        is <literal>1,5,0</literal>, so the appropriate input to
++        specify that device is <option>dev=1,5,0</option>.  Refer to
++        the manual page for <command>cdrecord</command> for other ways
++        to specify this value and for information on writing audio
++        tracks and controlling the write speed.</para>
+ 
+       <para>Alternately, run the following command to get the device
+-	address of the burner:</para>
++        address of the burner:</para>
+ 
+       <screen>&prompt.root; <userinput>camcontrol devlist</userinput>
+ &lt;MATSHITA CDRW/DVD UJDA740 1.00&gt;   at scbus1 target 0 lun 0 (cd0,pass0)</screen>
+ 
+       <para>Use the numeric values for <literal>scbus</literal>,
+-	<literal>target</literal>, and <literal>lun</literal>.  For
+-	this example, <literal>1,0,0</literal> is the device name to
+-	use.</para>
++        <literal>target</literal>, and <literal>lun</literal>.  For
++        this example, <literal>1,0,0</literal> is the device name to
++        use.</para>
+     </sect2>
+ 
+     <sect2 xml:id="mkisofs">
+       <title>Writing Data to an <acronym>ISO</acronym> File
+-	System</title>
++        System</title>
+ 
+       <para>In order to produce a data <acronym>CD</acronym>, the data
+-	files that are going to make up the tracks on the
+-	<acronym>CD</acronym> must be prepared before they can be
+-	burned to the <acronym>CD</acronym>.  In &os;,
+-	<package>sysutils/cdrtools</package> installs
+-	<command>mkisofs</command>, which can be used to produce an
+-	<acronym>ISO</acronym> 9660 file system that is an image of a
+-	directory tree within a &unix; file system.  The simplest
+-	usage is to specify the name of the <acronym>ISO</acronym>
+-	file to create and the path to the files to place into the
+-	<acronym>ISO</acronym> 9660 file system:</para>
++        files that are going to make up the tracks on the
++        <acronym>CD</acronym> must be prepared before they can be
++        burned to the <acronym>CD</acronym>.  In &os;,
++        <package>sysutils/cdrtools</package> installs
++        <command>mkisofs</command>, which can be used to produce an
++        <acronym>ISO</acronym> 9660 file system that is an image of a
++        directory tree within a &unix; file system.  The simplest
++        usage is to specify the name of the <acronym>ISO</acronym>
++        file to create and the path to the files to place into the
++        <acronym>ISO</acronym> 9660 file system:</para>
+ 
+       <screen>&prompt.root; <userinput>mkisofs -o <replaceable>imagefile.iso</replaceable> <replaceable>/path/to/tree</replaceable></userinput></screen>
+ 
+       <indexterm>
+-	<primary>file systems</primary>
+-	<secondary>ISO 9660</secondary>
++        <primary>file systems</primary>
++        <secondary>ISO 9660</secondary>
+       </indexterm>
+ 
+       <para>This command maps the file names in the specified path to
+-	names that fit the limitations of the standard
+-	<acronym>ISO</acronym> 9660 file system, and will exclude
+-	files that do not meet the standard for <acronym>ISO</acronym>
+-	file systems.</para>
++        names that fit the limitations of the standard
++        <acronym>ISO</acronym> 9660 file system, and will exclude
++        files that do not meet the standard for <acronym>ISO</acronym>
++        file systems.</para>
+ 
+       <indexterm>
+-	<primary>file systems</primary>
+-	<secondary>Joliet</secondary>
++        <primary>file systems</primary>
++        <secondary>Joliet</secondary>
+       </indexterm>
+ 
+       <para>A number of options are available to overcome the
+-	restrictions imposed by the standard.  In particular,
+-	<option>-R</option> enables the Rock Ridge extensions common
+-	to &unix; systems and <option>-J</option> enables Joliet
+-	extensions used by &microsoft; systems.</para>
++        restrictions imposed by the standard.  In particular,
++        <option>-R</option> enables the Rock Ridge extensions common
++        to &unix; systems and <option>-J</option> enables Joliet
++        extensions used by &microsoft; systems.</para>
+ 
+       <para>For <acronym>CD</acronym>s that are going to be used only
+-	on &os; systems, <option>-U</option> can be used to disable
+-	all filename restrictions.  When used with
+-	<option>-R</option>, it produces a file system image that is
+-	identical to the specified &os; tree, even if it violates the
+-	<acronym>ISO</acronym> 9660 standard.</para>
++        on &os; systems, <option>-U</option> can be used to disable
++        all filename restrictions.  When used with
++        <option>-R</option>, it produces a file system image that is
++        identical to the specified &os; tree, even if it violates the
++        <acronym>ISO</acronym> 9660 standard.</para>
+ 
+       <indexterm>
+-	<primary><acronym>CD-ROM</acronym>s</primary>
+-	<secondary>creating bootable</secondary>
++        <primary><acronym>CD-ROM</acronym>s</primary>
++        <secondary>creating bootable</secondary>
+       </indexterm>
+ 
+       <para>The last option of general use is <option>-b</option>.
+-	This is used to specify the location of a boot image for use
+-	in producing an <quote>El Torito</quote> bootable
+-	<acronym>CD</acronym>.  This option takes an argument which is
+-	the path to a boot image from the top of the tree being
+-	written to the <acronym>CD</acronym>.  By default,
+-	<command>mkisofs</command> creates an <acronym>ISO</acronym>
+-	image in <quote>floppy disk emulation</quote> mode, and thus
+-	expects the boot image to be exactly 1200, 1440 or
+-	2880&nbsp;KB in size.  Some boot loaders, like the one used by
+-	the &os; distribution media, do not use emulation mode.  In
+-	this case, <option>-no-emul-boot</option> should be used.  So,
+-	if <filename>/tmp/myboot</filename> holds a bootable &os;
+-	system with the boot image in
+-	<filename>/tmp/myboot/boot/cdboot</filename>, this command
+-	would produce
+-	<filename>/tmp/bootable.iso</filename>:</para>
++        This is used to specify the location of a boot image for use
++        in producing an <quote>El Torito</quote> bootable
++        <acronym>CD</acronym>.  This option takes an argument which is
++        the path to a boot image from the top of the tree being
++        written to the <acronym>CD</acronym>.  By default,
++        <command>mkisofs</command> creates an <acronym>ISO</acronym>
++        image in <quote>floppy disk emulation</quote> mode, and thus
++        expects the boot image to be exactly 1200, 1440 or
++        2880&nbsp;KB in size.  Some boot loaders, like the one used by
++        the &os; distribution media, do not use emulation mode.  In
++        this case, <option>-no-emul-boot</option> should be used.  So,
++        if <filename>/tmp/myboot</filename> holds a bootable &os;
++        system with the boot image in
++        <filename>/tmp/myboot/boot/cdboot</filename>, this command
++        would produce
++        <filename>/tmp/bootable.iso</filename>:</para>
+ 
+       <screen>&prompt.root; <userinput>mkisofs -R -no-emul-boot -b boot/cdboot -o /tmp/bootable.iso /tmp/myboot</userinput></screen>
+ 
+       <para>The resulting <acronym>ISO</acronym> image can be mounted
+-	as a memory disk with:</para>
++        as a memory disk with:</para>
+ 
+       <screen>&prompt.root; <userinput>mdconfig -a -t vnode -f /tmp/bootable.iso -u 0</userinput>
+ &prompt.root; <userinput>mount -t cd9660 /dev/md0 /mnt</userinput></screen>
+ 
+       <para>One can then verify that <filename>/mnt</filename> and
+-	<filename>/tmp/myboot</filename> are identical.</para>
++        <filename>/tmp/myboot</filename> are identical.</para>
+ 
+       <para>There are many other options available for
+-	<command>mkisofs</command> to fine-tune its behavior.  Refer
+-	to &man.mkisofs.8; for details.</para>
++        <command>mkisofs</command> to fine-tune its behavior.  Refer
++        to &man.mkisofs.8; for details.</para>
+ 
+       <note>
+-	<para>It is possible to copy a data <acronym>CD</acronym> to
+-	  an image file that is functionally equivalent to the image
+-	  file created with <command>mkisofs</command>.  To do so, use
+-	  <filename>dd</filename> with the device name as the input
+-	  file and the name of the <acronym>ISO</acronym> to create as
+-	  the output file:</para>
++        <para>It is possible to copy a data <acronym>CD</acronym> to
++          an image file that is functionally equivalent to the image
++          file created with <command>mkisofs</command>.  To do so, use
++          <filename>dd</filename> with the device name as the input
++          file and the name of the <acronym>ISO</acronym> to create as
++          the output file:</para>
+ 
+-	<screen>&prompt.root; <userinput>dd if=/dev/<replaceable>cd0</replaceable> of=<replaceable>file.iso</replaceable> bs=2048</userinput></screen>
++        <screen>&prompt.root; <userinput>dd if=/dev/<replaceable>cd0</replaceable> of=<replaceable>file.iso</replaceable> bs=2048</userinput></screen>
+ 
+-	<para>The resulting image file can be burned to
+-	  <acronym>CD</acronym> as described in <xref
+-	    linkend="cdrecord"/>.</para>
++        <para>The resulting image file can be burned to
++          <acronym>CD</acronym> as described in <xref
++            linkend="cdrecord"/>.</para>
+       </note>
+     </sect2>
+ 
+@@ -890,83 +890,83 @@
+       <title>Using Data <acronym>CD</acronym>s</title>
+ 
+       <para>Once an <acronym>ISO</acronym> has been burned to a
+-	<acronym>CD</acronym>, it can be mounted by specifying the
+-	file system type, the name of the device containing the
+-	<acronym>CD</acronym>, and an existing mount point:</para>
++        <acronym>CD</acronym>, it can be mounted by specifying the
++        file system type, the name of the device containing the
++        <acronym>CD</acronym>, and an existing mount point:</para>
+ 
+       <screen>&prompt.root; <userinput>mount -t cd9660 <replaceable>/dev/cd0</replaceable> <replaceable>/mnt</replaceable></userinput></screen>
+ 
+       <para>Since <command>mount</command> assumes that a file system
+-	is of type <literal>ufs</literal>, a <errorname>Incorrect
+-	  super block</errorname> error will occur if <literal>-t
+-	  cd9660</literal> is not included when mounting a data
+-	<acronym>CD</acronym>.</para>
++        is of type <literal>ufs</literal>, a <errorname>Incorrect
++          super block</errorname> error will occur if <literal>-t
++          cd9660</literal> is not included when mounting a data
++        <acronym>CD</acronym>.</para>
+ 
+       <para>While any data <acronym>CD</acronym> can be mounted this
+-	way, disks with certain <acronym>ISO</acronym> 9660 extensions
+-	might behave oddly.  For example, Joliet disks store all
+-	filenames in two-byte Unicode characters.  If some non-English
+-	characters show up as question marks, specify the local
+-	charset with <option>-C</option>.  For more information, refer
+-	to &man.mount.cd9660.8;.</para>
++        way, disks with certain <acronym>ISO</acronym> 9660 extensions
++        might behave oddly.  For example, Joliet disks store all
++        filenames in two-byte Unicode characters.  If some non-English
++        characters show up as question marks, specify the local
++        charset with <option>-C</option>.  For more information, refer
++        to &man.mount.cd9660.8;.</para>
+ 
+       <note>
+-	<para>In order to do this character conversion with the help
+-	  of <option>-C</option>, the kernel requires the
+-	  <filename>cd9660_iconv.ko</filename> module to be loaded.
+-	  This can be done either by adding this line to
+-	  <filename>loader.conf</filename>:</para>
++        <para>In order to do this character conversion with the help
++          of <option>-C</option>, the kernel requires the
++          <filename>cd9660_iconv.ko</filename> module to be loaded.
++          This can be done either by adding this line to
++          <filename>loader.conf</filename>:</para>
+ 
+-	<programlisting>cd9660_iconv_load="YES"</programlisting>
++        <programlisting>cd9660_iconv_load="YES"</programlisting>
+ 
+-	<para>and then rebooting the machine, or by directly loading
+-	  the module with <command>kldload</command>.</para>
++        <para>and then rebooting the machine, or by directly loading
++          the module with <command>kldload</command>.</para>
+       </note>
+ 
+       <para>Occasionally, <errorname>Device not configured</errorname>
+-	will be displayed when trying to mount a data
+-	<acronym>CD</acronym>.  This usually means that the
+-	<acronym>CD</acronym> drive has not detected a disk in
+-	the tray, or that the drive is not visible on the bus.  It
+-	can take a couple of seconds for a <acronym>CD</acronym>
+-	drive to detect media, so be
+-	patient.</para>
++        will be displayed when trying to mount a data
++        <acronym>CD</acronym>.  This usually means that the
++        <acronym>CD</acronym> drive has not detected a disk in
++        the tray, or that the drive is not visible on the bus.  It
++        can take a couple of seconds for a <acronym>CD</acronym>
++        drive to detect media, so be
++        patient.</para>
+ 
+       <para>Sometimes, a <acronym>SCSI</acronym>
+-	<acronym>CD</acronym> drive may be missed because it did not
+-	have enough time to answer the bus reset.  To resolve this,
+-	a custom kernel can be created which increases the default
+-	<acronym>SCSI</acronym> delay.  Add the following option to
+-	the custom kernel configuration file and rebuild the kernel
+-	using the instructions in <xref
+-	  linkend="kernelconfig-building"/>:</para>
++        <acronym>CD</acronym> drive may be missed because it did not
++        have enough time to answer the bus reset.  To resolve this,
++        a custom kernel can be created which increases the default
++        <acronym>SCSI</acronym> delay.  Add the following option to
++        the custom kernel configuration file and rebuild the kernel
++        using the instructions in <xref
++          linkend="kernelconfig-building"/>:</para>
+ 
+       <programlisting>options SCSI_DELAY=15000</programlisting>
+ 
+       <para>This tells the <acronym>SCSI</acronym> bus to pause 15
+-	seconds during boot, to give the <acronym>CD</acronym>
+-	drive every possible chance to answer the bus reset.</para>
++        seconds during boot, to give the <acronym>CD</acronym>
++        drive every possible chance to answer the bus reset.</para>
+ 
+       <note>
+-	<para>It is possible to burn a file directly to
+-	  <acronym>CD</acronym>, without creating an
+-	  <acronym>ISO</acronym> 9660 file system.  This is known as
+-	  burning a raw data <acronym>CD</acronym> and some people do
+-	  this for backup purposes.</para>
++        <para>It is possible to burn a file directly to
++          <acronym>CD</acronym>, without creating an
++          <acronym>ISO</acronym> 9660 file system.  This is known as
++          burning a raw data <acronym>CD</acronym> and some people do
++          this for backup purposes.</para>
+ 
+-	<para>This type of disk can not be mounted as a normal data
+-	  <acronym>CD</acronym>.  In order to retrieve the data burned
+-	  to such a <acronym>CD</acronym>, the data must be read from
+-	  the raw device node.  For example, this command will extract
+-	  a compressed tar file located on the second
+-	  <acronym>CD</acronym> device into the current working
+-	  directory:</para>
++        <para>This type of disk can not be mounted as a normal data
++          <acronym>CD</acronym>.  In order to retrieve the data burned
++          to such a <acronym>CD</acronym>, the data must be read from
++          the raw device node.  For example, this command will extract
++          a compressed tar file located on the second
++          <acronym>CD</acronym> device into the current working
++          directory:</para>
+ 
+-	<screen>&prompt.root; <userinput>tar xzvf /dev/<replaceable>cd1</replaceable></userinput></screen>
++        <screen>&prompt.root; <userinput>tar xzvf /dev/<replaceable>cd1</replaceable></userinput></screen>
+ 
+-	<para>  In order to mount a data <acronym>CD</acronym>, the
+-	  data must be written using
+-	  <command>mkisofs</command>.</para>
++        <para>  In order to mount a data <acronym>CD</acronym>, the
++          data must be written using
++          <command>mkisofs</command>.</para>
+       </note>
+     </sect2>
+ 
+@@ -974,46 +974,46 @@
+       <title>Duplicating Audio <acronym>CD</acronym>s</title>
+ 
+       <para>To duplicate an audio <acronym>CD</acronym>, extract the
+-	audio data from the <acronym>CD</acronym> to a series of
+-	files, then write these files to a blank
+-	<acronym>CD</acronym>.</para>
++        audio data from the <acronym>CD</acronym> to a series of
++        files, then write these files to a blank
++        <acronym>CD</acronym>.</para>
+ 
+       <para><xref linkend="using-cdrecord"/> describes how to
+-	duplicate and burn an audio <acronym>CD</acronym>.  If the
+-	&os; version is less than 10.0 and the device is
+-	<acronym>ATAPI</acronym>, the <option>atapicam</option> module
+-	must be first loaded using the instructions in <xref
+-	  linkend="atapicam"/>.</para>
++        duplicate and burn an audio <acronym>CD</acronym>.  If the
++        &os; version is less than 10.0 and the device is
++        <acronym>ATAPI</acronym>, the <option>atapicam</option> module
++        must be first loaded using the instructions in <xref
++          linkend="atapicam"/>.</para>
+ 
+       <procedure xml:id="using-cdrecord">
+-	<title>Duplicating an Audio <acronym>CD</acronym></title>
++        <title>Duplicating an Audio <acronym>CD</acronym></title>
+ 
+-	<step>
+-	  <para>The <package>sysutils/cdrtools</package> package or
+-	    port installs <command>cdda2wav</command>.  This command
+-	    can be used to extract all of the audio tracks, with each
+-	    track written to a separate <acronym>WAV</acronym> file in
+-	    the current working directory:</para>
++        <step>
++          <para>The <package>sysutils/cdrtools</package> package or
++            port installs <command>cdda2wav</command>.  This command
++            can be used to extract all of the audio tracks, with each
++            track written to a separate <acronym>WAV</acronym> file in
++            the current working directory:</para>
+ 
+-	  <screen>&prompt.user; <userinput>cdda2wav -vall -B -Owav</userinput></screen>
++          <screen>&prompt.user; <userinput>cdda2wav -vall -B -Owav</userinput></screen>
+ 
+-	  <para>A device name does not need to be specified if there
+-	    is only one <acronym>CD</acronym> device on the system.
+-	    Refer to the <command>cdda2wav</command> manual page for
+-	    instructions on how to specify a device and to learn more
+-	    about the other options available for this command.</para>
+-	</step>
++          <para>A device name does not need to be specified if there
++            is only one <acronym>CD</acronym> device on the system.
++            Refer to the <command>cdda2wav</command> manual page for
++            instructions on how to specify a device and to learn more
++            about the other options available for this command.</para>
++        </step>
+ 
+-	<step>
+-	  <para>Use <command>cdrecord</command> to write the
+-	    <filename>.wav</filename> files:</para>
++        <step>
++          <para>Use <command>cdrecord</command> to write the
++            <filename>.wav</filename> files:</para>
+ 
+-	  <screen>&prompt.user; <userinput>cdrecord -v dev=<replaceable>2,0</replaceable> -dao -useinfo  *.wav</userinput></screen>
++          <screen>&prompt.user; <userinput>cdrecord -v dev=<replaceable>2,0</replaceable> -dao -useinfo  *.wav</userinput></screen>
+ 
+-	  <para>Make sure that <replaceable>2,0</replaceable> is set
+-	    appropriately, as described in <xref
+-	      linkend="cdrecord"/>.</para>
+-	</step>
++          <para>Make sure that <replaceable>2,0</replaceable> is set
++            appropriately, as described in <xref
++              linkend="cdrecord"/>.</para>
++        </step>
+       </procedure>
+     </sect2>
+   </sect1>
+@@ -1023,22 +1023,22 @@
+       <title>Creating and Using <acronym>DVD</acronym> Media</title>
+ 
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Marc</firstname>
+-	    <surname>Fonvieille</surname>
+-	  </personname>
+-	  <contrib>Contributed by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Marc</firstname>
++            <surname>Fonvieille</surname>
++          </personname>
++          <contrib>Contributed by </contrib>
++        </author>
+       </authorgroup>
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Andy</firstname>
+-	    <surname>Polyakov</surname>
+-	  </personname>
+-	  <contrib>With inputs from </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Andy</firstname>
++            <surname>Polyakov</surname>
++          </personname>
++          <contrib>With inputs from </contrib>
++        </author>
+       </authorgroup>
+     </info>
+ 
+@@ -1058,42 +1058,42 @@
+ 
+     <itemizedlist>
+       <listitem>
+-	<para>DVD-R: This was the first <acronym>DVD</acronym>
+-	  recordable format available.  The DVD-R standard is defined
+-	  by the <link
+-	    xlink:href="http://www.dvdforum.com/forum.shtml"><acronym>DVD</acronym>
+-	    Forum</link>.  This format is write once.</para>
++        <para>DVD-R: This was the first <acronym>DVD</acronym>
++          recordable format available.  The DVD-R standard is defined
++          by the <link
++            xlink:href="http://www.dvdforum.com/forum.shtml"><acronym>DVD</acronym>
++            Forum</link>.  This format is write once.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para><acronym>DVD-RW</acronym>: This is the rewritable
+-	  version of the DVD-R standard.  A
+-	  <acronym>DVD-RW</acronym> can be rewritten about 1000
+-	  times.</para>
++        <para><acronym>DVD-RW</acronym>: This is the rewritable
++          version of the DVD-R standard.  A
++          <acronym>DVD-RW</acronym> can be rewritten about 1000
++          times.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para><acronym>DVD-RAM</acronym>: This is a rewritable format
+-	  which can be seen as a removable hard drive.  However, this
+-	  media is not compatible with most
+-	  <acronym>DVD-ROM</acronym> drives and DVD-Video players as
+-	  only a few <acronym>DVD</acronym> writers support the
+-	  <acronym>DVD-RAM</acronym> format.  Refer to <xref
+-	    linkend="creating-dvd-ram"/> for more information on
+-	  <acronym>DVD-RAM</acronym> use.</para>
++        <para><acronym>DVD-RAM</acronym>: This is a rewritable format
++          which can be seen as a removable hard drive.  However, this
++          media is not compatible with most
++          <acronym>DVD-ROM</acronym> drives and DVD-Video players as
++          only a few <acronym>DVD</acronym> writers support the
++          <acronym>DVD-RAM</acronym> format.  Refer to <xref
++            linkend="creating-dvd-ram"/> for more information on
++          <acronym>DVD-RAM</acronym> use.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para><acronym>DVD+RW</acronym>: This is a rewritable format
+-	  defined by the <link
+-	    xlink:href="http://www.dvdrw.com/"><acronym>DVD+RW</acronym>
+-	    Alliance</link>.  A <acronym>DVD+RW</acronym> can be
+-	  rewritten about 1000 times.</para>
++        <para><acronym>DVD+RW</acronym>: This is a rewritable format
++          defined by the <link
++            xlink:href="http://www.dvdrw.com/"><acronym>DVD+RW</acronym>
++            Alliance</link>.  A <acronym>DVD+RW</acronym> can be
++          rewritten about 1000 times.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>DVD+R: This format is the write once variation of the
+-	  <acronym>DVD+RW</acronym> format.</para>
++        <para>DVD+R: This format is the write once variation of the
++          <acronym>DVD+RW</acronym> format.</para>
+       </listitem>
+     </itemizedlist>
+ 
+@@ -1103,12 +1103,12 @@
+ 
+     <note>
+       <para>A distinction must be made between the physical media and
+-	the application.  For example, a DVD-Video is a specific file
+-	layout that can be written on any recordable
+-	<acronym>DVD</acronym> physical media such as DVD-R, DVD+R, or
+-	<acronym>DVD-RW</acronym>.  Before choosing the type of media,
+-	ensure that both the burner and the DVD-Video player are
+-	compatible with the media under consideration.</para>
++        the application.  For example, a DVD-Video is a specific file
++        layout that can be written on any recordable
++        <acronym>DVD</acronym> physical media such as DVD-R, DVD+R, or
++        <acronym>DVD-RW</acronym>.  Before choosing the type of media,
++        ensure that both the burner and the DVD-Video player are
++        compatible with the media under consideration.</para>
+     </note>
+ 
+     <sect2>
+@@ -1115,34 +1115,34 @@
+       <title>Configuration</title>
+ 
+       <para>To perform <acronym>DVD</acronym> recording, use
+-	&man.growisofs.1;.  This command is part of the
+-	<package>sysutils/dvd+rw-tools</package> utilities which
+-	support all <acronym>DVD</acronym> media types.</para>
++        &man.growisofs.1;.  This command is part of the
++        <package>sysutils/dvd+rw-tools</package> utilities which
++        support all <acronym>DVD</acronym> media types.</para>
+ 
+       <para>These tools use the <acronym>SCSI</acronym> subsystem to
+-	access the devices, therefore <link
+-	  linkend="atapicam">ATAPI/CAM support</link> must be loaded
+-	or statically compiled into the kernel.  This support is not
+-	needed if the burner uses the <acronym>USB</acronym>
+-	interface.  Refer to <xref linkend="usb-disks"/> for more
+-	details on <acronym>USB</acronym> device configuration.</para>
++        access the devices, therefore <link
++          linkend="atapicam">ATAPI/CAM support</link> must be loaded
++        or statically compiled into the kernel.  This support is not
++        needed if the burner uses the <acronym>USB</acronym>
++        interface.  Refer to <xref linkend="usb-disks"/> for more
++        details on <acronym>USB</acronym> device configuration.</para>
+ 
+       <para>DMA access must also be enabled for
+-	<acronym>ATAPI</acronym> devices, by adding the following line
+-	to <filename>/boot/loader.conf</filename>:</para>
++        <acronym>ATAPI</acronym> devices, by adding the following line
++        to <filename>/boot/loader.conf</filename>:</para>
+ 
+       <programlisting>hw.ata.atapi_dma="1"</programlisting>
+ 
+       <para>Before attempting to use
+-	<application>dvd+rw-tools</application>, consult the <link
+-	  xlink:href="http://fy.chalmers.se/~appro/linux/DVD+RW/hcn.html">Hardware
+-	  Compatibility Notes</link>.</para>
++        <application>dvd+rw-tools</application>, consult the <link
++          xlink:href="http://fy.chalmers.se/~appro/linux/DVD+RW/hcn.html">Hardware
++          Compatibility Notes</link>.</para>
+ 
+       <note>
+-	<para>For a graphical user interface, consider using
+-	  <package>sysutils/k3b</package> which provides a user
+-	  friendly interface to &man.growisofs.1; and many other
+-	  burning tools.</para>
++        <para>For a graphical user interface, consider using
++          <package>sysutils/k3b</package> which provides a user
++          friendly interface to &man.growisofs.1; and many other
++          burning tools.</para>
+       </note>
+     </sect2>
+ 
+@@ -1150,72 +1150,72 @@
+       <title>Burning Data <acronym>DVD</acronym>s</title>
+ 
+       <para>Since &man.growisofs.1; is a front-end to <link
+-	  linkend="mkisofs">mkisofs</link>, it will invoke
+-	&man.mkisofs.8; to create the file system layout and perform
+-	the write on the <acronym>DVD</acronym>.  This means that an
+-	image of the data does not need to be created before the
+-	burning process.</para>
++          linkend="mkisofs">mkisofs</link>, it will invoke
++        &man.mkisofs.8; to create the file system layout and perform
++        the write on the <acronym>DVD</acronym>.  This means that an
++        image of the data does not need to be created before the
++        burning process.</para>
+ 
+       <para>To burn to a DVD+R or a DVD-R the data in
+-	<filename>/path/to/data</filename>, use the following
+-	command:</para>
++        <filename>/path/to/data</filename>, use the following
++        command:</para>
+ 
+       <screen>&prompt.root; <userinput>growisofs -dvd-compat -Z <replaceable>/dev/cd0</replaceable> -J -R <replaceable>/path/to/data</replaceable></userinput></screen>
+ 
+       <para>In this example, <option>-J -R</option> is passed to
+-	&man.mkisofs.8;  to create an ISO 9660 file system with Joliet
+-	and Rock Ridge extensions.  Refer to &man.mkisofs.8; for more
+-	details.</para>
++        &man.mkisofs.8;  to create an ISO 9660 file system with Joliet
++        and Rock Ridge extensions.  Refer to &man.mkisofs.8; for more
++        details.</para>
+ 
+       <para>For the initial session recording, <option>-Z</option> is
+-	used for both single and multiple sessions.  Replace
+-	<replaceable>/dev/cd0</replaceable>, with the name of the
+-	<acronym>DVD</acronym> device.  Using
+-	<option>-dvd-compat</option> indicates that the disk will be
+-	closed and that the recording will be unappendable.  This
+-	should also provide better media compatibility with
+-	<acronym>DVD-ROM</acronym> drives.</para>
++        used for both single and multiple sessions.  Replace
++        <replaceable>/dev/cd0</replaceable>, with the name of the
++        <acronym>DVD</acronym> device.  Using
++        <option>-dvd-compat</option> indicates that the disk will be
++        closed and that the recording will be unappendable.  This
++        should also provide better media compatibility with
++        <acronym>DVD-ROM</acronym> drives.</para>
+ 
+       <para>To burn a pre-mastered image, such as
+-	<replaceable>imagefile.iso</replaceable>, use:</para>
++        <replaceable>imagefile.iso</replaceable>, use:</para>
+ 
+       <screen>&prompt.root; <userinput>growisofs -dvd-compat -Z <replaceable>/dev/cd0</replaceable>=<replaceable>imagefile.iso</replaceable></userinput></screen>
+ 
+       <para>The write speed should be detected and automatically set
+-	according to the media and the drive being used.  To force the
+-	write speed, use  <option>-speed=</option>.  Refer to
+-	&man.growisofs.1; for example usage.</para>
++        according to the media and the drive being used.  To force the
++        write speed, use  <option>-speed=</option>.  Refer to
++        &man.growisofs.1; for example usage.</para>
+ 
+       <note>
+-	<para>In order to support working files larger than 4.38GB, an
+-	  UDF/ISO-9660 hybrid file system must be created by passing
+-	  <option>-udf -iso-level 3</option> to &man.mkisofs.8; and
+-	  all related programs, such as &man.growisofs.1;.  This is
+-	  required only when creating an ISO image file or when
+-	  writing files directly to a disk.  Since a disk created this
+-	  way must be mounted as an UDF file system with
+-	  &man.mount.udf.8;, it will be usable only on an UDF aware
+-	  operating system.  Otherwise it will look as if it contains
+-	  corrupted files.</para>
++        <para>In order to support working files larger than 4.38GB, an
++          UDF/ISO-9660 hybrid file system must be created by passing
++          <option>-udf -iso-level 3</option> to &man.mkisofs.8; and
++          all related programs, such as &man.growisofs.1;.  This is
++          required only when creating an ISO image file or when
++          writing files directly to a disk.  Since a disk created this
++          way must be mounted as an UDF file system with
++          &man.mount.udf.8;, it will be usable only on an UDF aware
++          operating system.  Otherwise it will look as if it contains
++          corrupted files.</para>
+ 
+-	<para>To create this type of ISO file:</para>
++        <para>To create this type of ISO file:</para>
+ 
+-	<screen>&prompt.user; <userinput>mkisofs -R -J -udf -iso-level 3 -o <replaceable>imagefile.iso</replaceable> <replaceable>/path/to/data</replaceable></userinput></screen>
++        <screen>&prompt.user; <userinput>mkisofs -R -J -udf -iso-level 3 -o <replaceable>imagefile.iso</replaceable> <replaceable>/path/to/data</replaceable></userinput></screen>
+ 
+-	<para>To burn files directly to a disk:</para>
++        <para>To burn files directly to a disk:</para>
+ 
+-	<screen>&prompt.root; <userinput>growisofs -dvd-compat -udf -iso-level 3 -Z <replaceable>/dev/cd0</replaceable> -J -R <replaceable>/path/to/data</replaceable></userinput></screen>
++        <screen>&prompt.root; <userinput>growisofs -dvd-compat -udf -iso-level 3 -Z <replaceable>/dev/cd0</replaceable> -J -R <replaceable>/path/to/data</replaceable></userinput></screen>
+ 
+-	<para>When an ISO image already contains large files, no
+-	  additional options are required for &man.growisofs.1; to
+-	  burn that image on a disk.</para>
++        <para>When an ISO image already contains large files, no
++          additional options are required for &man.growisofs.1; to
++          burn that image on a disk.</para>
+ 
+-	<para>Be sure to use an up-to-date version of
+-	  <package>sysutils/cdrtools</package>, which contains
+-	  &man.mkisofs.8;, as an older version may not contain large
+-	  files support.  If the latest version does not work, install
+-	  <package>sysutils/cdrtools-devel</package> and read its
+-	  &man.mkisofs.8;.</para>
++        <para>Be sure to use an up-to-date version of
++          <package>sysutils/cdrtools</package>, which contains
++          &man.mkisofs.8;, as an older version may not contain large
++          files support.  If the latest version does not work, install
++          <package>sysutils/cdrtools-devel</package> and read its
++          &man.mkisofs.8;.</para>
+       </note>
+     </sect2>
+ 
+@@ -1223,29 +1223,29 @@
+       <title>Burning a <acronym>DVD</acronym>-Video</title>
+ 
+       <indexterm>
+-	<primary><acronym>DVD</acronym></primary>
+-	<secondary>DVD-Video</secondary>
++        <primary><acronym>DVD</acronym></primary>
++        <secondary>DVD-Video</secondary>
+       </indexterm>
+ 
+       <para>A DVD-Video is a specific file layout based on the ISO
+-	9660 and micro-UDF (M-UDF) specifications.  Since DVD-Video
+-	presents a specific data structure hierarchy, a particular
+-	program such as <package>multimedia/dvdauthor</package> is
+-	needed to author the <acronym>DVD</acronym>.</para>
++        9660 and micro-UDF (M-UDF) specifications.  Since DVD-Video
++        presents a specific data structure hierarchy, a particular
++        program such as <package>multimedia/dvdauthor</package> is
++        needed to author the <acronym>DVD</acronym>.</para>
+ 
+       <para>If an image of the DVD-Video file system already exists,
+-	it can be burned in the same way as any other image.  If
+-	<command>dvdauthor</command> was used to make the
+-	<acronym>DVD</acronym> and the result is in
+-	<filename>/path/to/video</filename>, the following command
+-	should be used to burn the DVD-Video:</para>
++        it can be burned in the same way as any other image.  If
++        <command>dvdauthor</command> was used to make the
++        <acronym>DVD</acronym> and the result is in
++        <filename>/path/to/video</filename>, the following command
++        should be used to burn the DVD-Video:</para>
+ 
+       <screen>&prompt.root; <userinput>growisofs -Z <replaceable>/dev/cd0</replaceable> -dvd-video <replaceable>/path/to/video</replaceable></userinput></screen>
+ 
+       <para><option>-dvd-video</option> is passed to &man.mkisofs.8;
+-	to instruct it to create a DVD-Video file system layout.
+-	This option implies the <option>-dvd-compat</option>
+-	&man.growisofs.1; option.</para>
++        to instruct it to create a DVD-Video file system layout.
++        This option implies the <option>-dvd-compat</option>
++        &man.growisofs.1; option.</para>
+     </sect2>
+ 
+     <sect2>
+@@ -1252,51 +1252,51 @@
+       <title>Using a <acronym>DVD+RW</acronym></title>
+ 
+       <indexterm>
+-	<primary><acronym>DVD</acronym></primary>
+-	<secondary><acronym>DVD+RW</acronym></secondary>
++        <primary><acronym>DVD</acronym></primary>
++        <secondary><acronym>DVD+RW</acronym></secondary>
+       </indexterm>
+ 
+       <para>Unlike CD-RW, a virgin <acronym>DVD+RW</acronym> needs to
+-	be formatted before first use.  It is
+-	<emphasis>recommended</emphasis> to let &man.growisofs.1; take
+-	care of this automatically whenever appropriate.  However, it
+-	is possible to use <command>dvd+rw-format</command> to format
+-	the <acronym>DVD+RW</acronym>:</para>
++        be formatted before first use.  It is
++        <emphasis>recommended</emphasis> to let &man.growisofs.1; take
++        care of this automatically whenever appropriate.  However, it
++        is possible to use <command>dvd+rw-format</command> to format
++        the <acronym>DVD+RW</acronym>:</para>
+ 
+       <screen>&prompt.root; <userinput>dvd+rw-format <replaceable>/dev/cd0</replaceable></userinput></screen>
+ 
+       <para>Only perform this operation once and keep in mind that
+-	only virgin <acronym>DVD+RW</acronym> medias need to be
+-	formatted.  Once formatted, the <acronym>DVD+RW</acronym> can
+-	be burned as usual.</para>
++        only virgin <acronym>DVD+RW</acronym> medias need to be
++        formatted.  Once formatted, the <acronym>DVD+RW</acronym> can
++        be burned as usual.</para>
+ 
+       <para>To burn a totally new file system and not just append some
+-	data onto a <acronym>DVD+RW</acronym>, the media does not need
+-	to be blanked first.  Instead, write over the previous
+-	recording like this:</para>
++        data onto a <acronym>DVD+RW</acronym>, the media does not need
++        to be blanked first.  Instead, write over the previous
++        recording like this:</para>
+ 
+       <screen>&prompt.root; <userinput>growisofs -Z <replaceable>/dev/cd0</replaceable> -J -R <replaceable>/path/to/newdata</replaceable></userinput></screen>
+ 
+       <para>The <acronym>DVD+RW</acronym> format supports appending
+-	data to a previous recording.  This operation consists of
+-	merging a new session to the existing one as it is not
+-	considered to be multi-session writing.  &man.growisofs.1;
+-	will <emphasis>grow</emphasis> the ISO 9660 file system
+-	present on the media.</para>
++        data to a previous recording.  This operation consists of
++        merging a new session to the existing one as it is not
++        considered to be multi-session writing.  &man.growisofs.1;
++        will <emphasis>grow</emphasis> the ISO 9660 file system
++        present on the media.</para>
+ 
+       <para>For example, to append data to a
+-	<acronym>DVD+RW</acronym>, use the following:</para>
++        <acronym>DVD+RW</acronym>, use the following:</para>
+ 
+       <screen>&prompt.root; <userinput>growisofs -M <replaceable>/dev/cd0</replaceable> -J -R <replaceable>/path/to/nextdata</replaceable></userinput></screen>
+ 
+       <para>The same &man.mkisofs.8; options used to burn the
+-	initial session should be used during next writes.</para>
++        initial session should be used during next writes.</para>
+ 
+       <note>
+-	<para>Use <option>-dvd-compat</option> for better media
+-	  compatibility with <acronym>DVD-ROM</acronym> drives.  When
+-	  using <acronym>DVD+RW</acronym>, this option will not
+-	  prevent the addition of data.</para>
++        <para>Use <option>-dvd-compat</option> for better media
++          compatibility with <acronym>DVD-ROM</acronym> drives.  When
++          using <acronym>DVD+RW</acronym>, this option will not
++          prevent the addition of data.</para>
+       </note>
+ 
+       <para>To blank the media, use:</para>
+@@ -1308,66 +1308,66 @@
+       <title>Using a <acronym>DVD-RW</acronym></title>
+ 
+       <indexterm>
+-	<primary><acronym>DVD</acronym></primary>
+-	<secondary><acronym>DVD-RW</acronym></secondary>
++        <primary><acronym>DVD</acronym></primary>
++        <secondary><acronym>DVD-RW</acronym></secondary>
+       </indexterm>
+ 
+       <para>A <acronym>DVD-RW</acronym> accepts two disc formats:
+-	incremental sequential and restricted overwrite.  By default,
+-	<acronym>DVD-RW</acronym> discs are in sequential
+-	format.</para>
++        incremental sequential and restricted overwrite.  By default,
++        <acronym>DVD-RW</acronym> discs are in sequential
++        format.</para>
+ 
+       <para>A virgin <acronym>DVD-RW</acronym> can be directly written
+-	without being formatted.  However, a non-virgin
+-	<acronym>DVD-RW</acronym> in sequential format needs to be
+-	blanked before writing a new initial session.</para>
++        without being formatted.  However, a non-virgin
++        <acronym>DVD-RW</acronym> in sequential format needs to be
++        blanked before writing a new initial session.</para>
+ 
+       <para>To blank a <acronym>DVD-RW</acronym> in sequential
+-	mode:</para>
++        mode:</para>
+ 
+       <screen>&prompt.root; <userinput>dvd+rw-format -blank=full <replaceable>/dev/cd0</replaceable></userinput></screen>
+ 
+       <note>
+-	<para>A full blanking using <option>-blank=full</option> will
+-	  take about one hour on a 1x media.  A fast blanking can be
+-	  performed using <option>-blank</option>, if the
+-	  <acronym>DVD-RW</acronym> will be recorded in Disk-At-Once
+-	  (DAO) mode.  To burn the <acronym>DVD-RW</acronym> in DAO
+-	  mode, use the command:</para>
++        <para>A full blanking using <option>-blank=full</option> will
++          take about one hour on a 1x media.  A fast blanking can be
++          performed using <option>-blank</option>, if the
++          <acronym>DVD-RW</acronym> will be recorded in Disk-At-Once
++          (DAO) mode.  To burn the <acronym>DVD-RW</acronym> in DAO
++          mode, use the command:</para>
+ 
+-	<screen>&prompt.root; <userinput>growisofs -use-the-force-luke=dao -Z <replaceable>/dev/cd0</replaceable>=<replaceable>imagefile.iso</replaceable></userinput></screen>
++        <screen>&prompt.root; <userinput>growisofs -use-the-force-luke=dao -Z <replaceable>/dev/cd0</replaceable>=<replaceable>imagefile.iso</replaceable></userinput></screen>
+ 
+-	<para>Since &man.growisofs.1; automatically attempts to detect
+-	  fast blanked media and engage DAO write,
+-	  <option>-use-the-force-luke=dao</option> should not be
+-	  required.</para>
++        <para>Since &man.growisofs.1; automatically attempts to detect
++          fast blanked media and engage DAO write,
++          <option>-use-the-force-luke=dao</option> should not be
++          required.</para>
+ 
+-	<para>One should instead use restricted overwrite mode with
+-	  any <acronym>DVD-RW</acronym> as this format is more
+-	  flexible than the default of incremental sequential.</para>
++        <para>One should instead use restricted overwrite mode with
++          any <acronym>DVD-RW</acronym> as this format is more
++          flexible than the default of incremental sequential.</para>
+       </note>
+ 
+       <para>To write data on a sequential <acronym>DVD-RW</acronym>,
+-	use the same instructions as for the other
+-	<acronym>DVD</acronym> formats:</para>
++        use the same instructions as for the other
++        <acronym>DVD</acronym> formats:</para>
+ 
+       <screen>&prompt.root; <userinput>growisofs -Z <replaceable>/dev/cd0</replaceable> -J -R <replaceable>/path/to/data</replaceable></userinput></screen>
+ 
+       <para>To append some data to a previous recording, use
+-	<option>-M</option> with &man.growisofs.1;.  However, if data
+-	is appended on a <acronym>DVD-RW</acronym> in incremental
+-	sequential mode, a new session will be created on the disc and
+-	the result will be a multi-session disc.</para>
++        <option>-M</option> with &man.growisofs.1;.  However, if data
++        is appended on a <acronym>DVD-RW</acronym> in incremental
++        sequential mode, a new session will be created on the disc and
++        the result will be a multi-session disc.</para>
+ 
+       <para>A <acronym>DVD-RW</acronym> in restricted overwrite format
+-	does not need to be blanked before a new initial session.
+-	Instead, overwrite the disc with <option>-Z</option>.  It is
+-	also possible to grow an existing ISO 9660 file system written
+-	on the disc with <option>-M</option>.  The result will be a
+-	one-session <acronym>DVD</acronym>.</para>
++        does not need to be blanked before a new initial session.
++        Instead, overwrite the disc with <option>-Z</option>.  It is
++        also possible to grow an existing ISO 9660 file system written
++        on the disc with <option>-M</option>.  The result will be a
++        one-session <acronym>DVD</acronym>.</para>
+ 
+       <para>To put a <acronym>DVD-RW</acronym> in restricted overwrite
+-	format, the following command must be used:</para>
++        format, the following command must be used:</para>
+ 
+       <screen>&prompt.root; <userinput>dvd+rw-format <replaceable>/dev/cd0</replaceable></userinput></screen>
+ 
+@@ -1380,33 +1380,33 @@
+       <title>Multi-Session</title>
+ 
+       <para>Few <acronym>DVD-ROM</acronym> drives support
+-	multi-session DVDs and most of the time only read the first
+-	session.  DVD+R, DVD-R and <acronym>DVD-RW</acronym> in
+-	sequential format can accept multiple sessions.  The notion
+-	of multiple sessions does not exist for the
+-	<acronym>DVD+RW</acronym> and the <acronym>DVD-RW</acronym>
+-	restricted overwrite formats.</para>
++        multi-session DVDs and most of the time only read the first
++        session.  DVD+R, DVD-R and <acronym>DVD-RW</acronym> in
++        sequential format can accept multiple sessions.  The notion
++        of multiple sessions does not exist for the
++        <acronym>DVD+RW</acronym> and the <acronym>DVD-RW</acronym>
++        restricted overwrite formats.</para>
+ 
+       <para>Using the following command after an initial non-closed
+-	session on a DVD+R, DVD-R, or <acronym>DVD-RW</acronym> in
+-	sequential format, will add a new session to the disc:</para>
++        session on a DVD+R, DVD-R, or <acronym>DVD-RW</acronym> in
++        sequential format, will add a new session to the disc:</para>
+ 
+       <screen>&prompt.root; <userinput>growisofs -M <replaceable>/dev/cd0</replaceable> -J -R <replaceable>/path/to/nextdata</replaceable></userinput></screen>
+ 
+       <para>Using this command with a <acronym>DVD+RW</acronym> or a
+-	<acronym>DVD-RW</acronym> in restricted overwrite mode will
+-	append data while merging the new session to the existing one.
+-	The result will be a single-session disc.  Use this method to
+-	add data after an initial write on these types of
+-	media.</para>
++        <acronym>DVD-RW</acronym> in restricted overwrite mode will
++        append data while merging the new session to the existing one.
++        The result will be a single-session disc.  Use this method to
++        add data after an initial write on these types of
++        media.</para>
+ 
+       <note>
+-	<para>Since some space on the media is used between each
+-	  session to mark the end and start of sessions, one should
+-	  add sessions with a large amount of data to optimize media
+-	  space.  The number of sessions is limited to 154 for a
+-	  DVD+R, about 2000 for a DVD-R, and 127 for a DVD+R Double
+-	  Layer.</para>
++        <para>Since some space on the media is used between each
++          session to mark the end and start of sessions, one should
++          add sessions with a large amount of data to optimize media
++          space.  The number of sessions is limited to 154 for a
++          DVD+R, about 2000 for a DVD-R, and 127 for a DVD+R Double
++          Layer.</para>
+       </note>
+     </sect2>
+ 
+@@ -1414,22 +1414,22 @@
+       <title>For More Information</title>
+ 
+       <para>To obtain more information about a <acronym>DVD</acronym>,
+-	use <command>dvd+rw-mediainfo
+-	  <replaceable>/dev/cd0</replaceable></command> while the
+-	disc in the specified drive.</para>
++        use <command>dvd+rw-mediainfo
++          <replaceable>/dev/cd0</replaceable></command> while the
++        disc in the specified drive.</para>
+ 
+       <para>More information about
+-	<application>dvd+rw-tools</application> can be found in
+-	&man.growisofs.1;, on the <link
+-	  xlink:href="http://fy.chalmers.se/~appro/linux/DVD+RW/">dvd+rw-tools
+-	  web site</link>, and in the <link
+-	  xlink:href="http://lists.debian.org/cdwrite/">cdwrite
+-	  mailing list</link> archives.</para>
++        <application>dvd+rw-tools</application> can be found in
++        &man.growisofs.1;, on the <link
++          xlink:href="http://fy.chalmers.se/~appro/linux/DVD+RW/">dvd+rw-tools
++          web site</link>, and in the <link
++          xlink:href="http://lists.debian.org/cdwrite/">cdwrite
++          mailing list</link> archives.</para>
+ 
+       <note>
+-	<para>When creating a problem report related to the use of
+-	  <application>dvd+rw-tools</application>, always include the
+-	  output of <command>dvd+rw-mediainfo</command>.</para>
++        <para>When creating a problem report related to the use of
++          <application>dvd+rw-tools</application>, always include the
++          output of <command>dvd+rw-mediainfo</command>.</para>
+       </note>
+     </sect2>
+ 
+@@ -1437,23 +1437,23 @@
+       <title>Using a <acronym>DVD-RAM</acronym></title>
+ 
+       <indexterm>
+-	<primary><acronym>DVD</acronym></primary>
+-	<secondary><acronym>DVD-RAM</acronym></secondary>
++        <primary><acronym>DVD</acronym></primary>
++        <secondary><acronym>DVD-RAM</acronym></secondary>
+       </indexterm>
+ 
+       <para><acronym>DVD-RAM</acronym> writers can use either a
+-	<acronym>SCSI</acronym> or <acronym>ATAPI</acronym> interface.
+-	For <acronym>ATAPI</acronym> devices, DMA access has to be
+-	enabled by adding the following line to
+-	<filename>/boot/loader.conf</filename>:</para>
++        <acronym>SCSI</acronym> or <acronym>ATAPI</acronym> interface.
++        For <acronym>ATAPI</acronym> devices, DMA access has to be
++        enabled by adding the following line to
++        <filename>/boot/loader.conf</filename>:</para>
+ 
+       <programlisting>hw.ata.atapi_dma="1"</programlisting>
+ 
+       <para>A <acronym>DVD-RAM</acronym> can be seen as a removable
+-	hard drive.  Like any other hard drive, the
+-	<acronym>DVD-RAM</acronym> must be formatted before it can be
+-	used.  In this example, the whole disk space will be formatted
+-	with a standard UFS2 file system:</para>
++        hard drive.  Like any other hard drive, the
++        <acronym>DVD-RAM</acronym> must be formatted before it can be
++        used.  In this example, the whole disk space will be formatted
++        with a standard UFS2 file system:</para>
+ 
+       <screen>&prompt.root; <userinput>dd if=/dev/zero of=<replaceable>/dev/acd0</replaceable> bs=2k count=1</userinput>
+ &prompt.root; <userinput>bsdlabel -Bw <replaceable>acd0</replaceable></userinput>
+@@ -1460,16 +1460,16 @@
+ &prompt.root; <userinput>newfs <replaceable>/dev/acd0</replaceable></userinput></screen>
+ 
+       <para>The <acronym>DVD</acronym> device,
+-	<filename>acd0</filename>, must be changed according to the
+-	configuration.</para>
++        <filename>acd0</filename>, must be changed according to the
++        configuration.</para>
+ 
+       <para>Once the <acronym>DVD-RAM</acronym> has been formatted, it
+-	can be mounted as a normal hard drive:</para>
++        can be mounted as a normal hard drive:</para>
+ 
+       <screen>&prompt.root; <userinput>mount <replaceable>/dev/acd0</replaceable> <replaceable>/mnt</replaceable></userinput></screen>
+ 
+       <para>Once mounted, the <acronym>DVD-RAM</acronym> will be both
+-	readable and writeable.</para>
++        readable and writeable.</para>
+     </sect2>
+   </sect1>
+ 
+@@ -1478,23 +1478,23 @@
+ 
+ <!--
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Julio</firstname>
+-	    <surname>Merino</surname>
+-	  </personname>
+-	  <contrib>Original work by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Julio</firstname>
++            <surname>Merino</surname>
++          </personname>
++          <contrib>Original work by </contrib>
++        </author>
+       </authorgroup>
+ 
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Martin</firstname>
+-	    <surname>Karlsson</surname>
+-	  </personname>
+-	  <contrib>Rewritten by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Martin</firstname>
++            <surname>Karlsson</surname>
++          </personname>
++          <contrib>Rewritten by </contrib>
++        </author>
+       </authorgroup>
+       -->
+ 
+@@ -1505,40 +1505,40 @@
+       <title>Steps to Format a Floppy</title>
+ 
+       <para>A floppy disk needs to be low-level formatted before it
+-	can be used.  This is usually done by the vendor, but
+-	formatting is a good way to check media integrity.  To
+-	low-level format the floppy disk on &os;, use
+-	&man.fdformat.1;.  When using this utility, make note of any
+-	error messages, as these can help determine if the disk is
+-	good or bad.</para>
++        can be used.  This is usually done by the vendor, but
++        formatting is a good way to check media integrity.  To
++        low-level format the floppy disk on &os;, use
++        &man.fdformat.1;.  When using this utility, make note of any
++        error messages, as these can help determine if the disk is
++        good or bad.</para>
+ 
+       <step>
+-	<para>To format the floppy, insert a new 3.5 inch floppy disk
+-	  into the first floppy drive and issue:</para>
++        <para>To format the floppy, insert a new 3.5 inch floppy disk
++          into the first floppy drive and issue:</para>
+ 
+-	  <screen>&prompt.root; <userinput>/usr/sbin/fdformat -f 1440 /dev/fd0</userinput></screen>
++          <screen>&prompt.root; <userinput>/usr/sbin/fdformat -f 1440 /dev/fd0</userinput></screen>
+       </step>
+ 
+       <step>
+-	<para>After low-level formatting the disk, create a disk label
+-	  as it is needed by the system to determine the size of the
+-	  disk and its geometry.  The supported geometry values are
+-	  listed in <filename>/etc/disktab</filename>.</para>
++        <para>After low-level formatting the disk, create a disk label
++          as it is needed by the system to determine the size of the
++          disk and its geometry.  The supported geometry values are
++          listed in <filename>/etc/disktab</filename>.</para>
+ 
+-	<para>To write the disk label, use &man.bsdlabel.8;:</para>
++        <para>To write the disk label, use &man.bsdlabel.8;:</para>
+ 
+-	<screen>&prompt.root; <userinput>/sbin/bsdlabel -B -w /dev/fd0 fd1440</userinput></screen>
++        <screen>&prompt.root; <userinput>/sbin/bsdlabel -B -w /dev/fd0 fd1440</userinput></screen>
+       </step>
+ 
+       <step>
+-	<para>The floppy is now ready to be high-level formatted with
+-	  a file system.  The floppy's file system can be either UFS
+-	  or FAT, where FAT is generally a better choice for
+-	  floppies.</para>
++        <para>The floppy is now ready to be high-level formatted with
++          a file system.  The floppy's file system can be either UFS
++          or FAT, where FAT is generally a better choice for
++          floppies.</para>
+ 
+-	<para>To format the floppy with FAT, issue:</para>
++        <para>To format the floppy with FAT, issue:</para>
+ 
+-	<screen>&prompt.root; <userinput>/sbin/newfs_msdos /dev/fd0</userinput></screen>
++        <screen>&prompt.root; <userinput>/sbin/newfs_msdos /dev/fd0</userinput></screen>
+       </step>
+     </procedure>
+ 
+@@ -1553,13 +1553,13 @@
+ 
+ <!--
+     <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Lowell</firstname>
+-	    <surname>Gilbert</surname>
+-	  </personname>
+-	  <contrib>Original work by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Lowell</firstname>
++            <surname>Gilbert</surname>
++          </personname>
++          <contrib>Original work by </contrib>
++        </author>
+       </authorgroup>
+       -->
+ 
+@@ -1575,26 +1575,26 @@
+ 
+     <itemizedlist>
+       <listitem>
+-	<para>Archives of the whole system, backed up onto permanent,
+-	  off-site media.  This provides protection against all of the
+-	  problems listed above, but is slow and inconvenient to
+-	  restore from, especially for non-privileged users.</para>
++        <para>Archives of the whole system, backed up onto permanent,
++          off-site media.  This provides protection against all of the
++          problems listed above, but is slow and inconvenient to
++          restore from, especially for non-privileged users.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>File system snapshots, which are useful for restoring
+-	  deleted files or previous versions of files.</para>
++        <para>File system snapshots, which are useful for restoring
++          deleted files or previous versions of files.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>Copies of whole file systems or disks which are
+-	  sychronized with another system on the network using a
+-	  scheduled <package>net/rsync</package>.</para>
++        <para>Copies of whole file systems or disks which are
++          synchronized with another system on the network using a
++          scheduled <package>net/rsync</package>.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>Hardware or software <acronym>RAID</acronym>, which
+-	  minimizes or avoids downtime when a disk fails.</para>
++        <para>Hardware or software <acronym>RAID</acronym>, which
++          minimizes or avoids downtime when a disk fails.</para>
+       </listitem>
+     </itemizedlist>
+ 

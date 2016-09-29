@@ -1,0 +1,1037 @@
+Index: chapter.xml
+===================================================================
+--- chapter.xml	(revision 49425)
++++ chapter.xml	(working copy)
+@@ -37,32 +37,32 @@
+ 
+     <itemizedlist>
+       <listitem>
+-	<para>The components of the &os; bootstrap system and how they
+-	  interact.</para>
++        <para>The components of the &os; bootstrap system and how they
++          interact.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>The options that can be passed to the components in the
+-	  &os; bootstrap in order to control the boot process.</para>
++        <para>The options that can be passed to the components in the
++          &os; bootstrap in order to control the boot process.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to configure a customized boot splash screen.</para>
++        <para>How to configure a customized boot splash screen.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>The basics of setting device hints.</para>
++        <para>The basics of setting device hints.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para>How to boot into single- and multi-user mode and how to
+-	  properly shut down a &os; system.</para>
++        <para>How to boot into single- and multi-user mode and how to
++          properly shut down a &os; system.</para>
+       </listitem>
+     </itemizedlist>
+ 
+     <note>
+       <para>This chapter only describes the boot process for &os;
+-	running on x86 and amd64 systems.</para>
++        running on x86 and amd64 systems.</para>
+     </note>
+   </sect1>
+ 
+@@ -78,7 +78,7 @@
+       disk, how is the operating system started?</para>
+ 
+     <para>This problem parallels one in the book <citetitle>The
+-	Adventures of Baron Munchausen</citetitle>.  A character had
++        Adventures of Baron Munchausen</citetitle>.  A character had
+       fallen part way down a manhole, and pulled himself out by
+       grabbing his bootstraps and lifting.  In the early days of
+       computing, the term <firstterm>bootstrap</firstterm> was applied
+@@ -88,7 +88,7 @@
+     <indexterm><primary><acronym>BIOS</acronym></primary></indexterm>
+ 
+     <indexterm><primary>Basic Input/Output
+-	System</primary><see><acronym>BIOS</acronym></see></indexterm>
++        System</primary><see><acronym>BIOS</acronym></see></indexterm>
+ 
+     <para>On x86 hardware, the Basic Input/Output System
+       (<acronym>BIOS</acronym>) is responsible for loading the
+@@ -103,18 +103,18 @@
+ 
+     <note>
+       <para>&os; provides for booting from both the older
+-	<acronym>MBR</acronym> standard, and the newer GUID Partition
+-	Table (<acronym>GPT</acronym>).  <acronym>GPT</acronym>
+-	partitioning is often found on computers with the Unified
+-	Extensible Firmware Interface (<acronym>UEFI</acronym>).
+-	However, &os; can boot from <acronym>GPT</acronym> partitions
+-	even on machines with only a legacy <acronym>BIOS</acronym>
+-	with &man.gptboot.8;.  Work is under way to provide direct
+-	<acronym>UEFI</acronym> booting.</para>
++        <acronym>MBR</acronym> standard, and the newer GUID Partition
++        Table (<acronym>GPT</acronym>).  <acronym>GPT</acronym>
++        partitioning is often found on computers with the Unified
++        Extensible Firmware Interface (<acronym>UEFI</acronym>).
++        However, &os; can boot from <acronym>GPT</acronym> partitions
++        even on machines with only a legacy <acronym>BIOS</acronym>
++        with &man.gptboot.8;.  Work is under way to provide direct
++        <acronym>UEFI</acronym> booting.</para>
+     </note>
+ 
+     <indexterm><primary>Master Boot Record
+-	(<acronym>MBR</acronym>)</primary></indexterm>
++        (<acronym>MBR</acronym>)</primary></indexterm>
+ 
+     <indexterm><primary>Boot Manager</primary></indexterm>
+ 
+@@ -170,26 +170,26 @@
+       <indexterm><primary>Boot Manager</primary></indexterm>
+ 
+       <indexterm><primary>Master Boot Record
+-	(<acronym>MBR</acronym>)</primary></indexterm>
++        (<acronym>MBR</acronym>)</primary></indexterm>
+ 
+       <para>The boot manager code in the <acronym>MBR</acronym> is
+-	sometimes referred to as <emphasis>stage zero</emphasis> of
+-	the boot process.  By default, &os; uses the
+-	<application>boot0</application> boot manager.</para>
++        sometimes referred to as <emphasis>stage zero</emphasis> of
++        the boot process.  By default, &os; uses the
++        <application>boot0</application> boot manager.</para>
+ 
+       <para>The <acronym>MBR</acronym> installed by the &os; installer
+-	is based on <filename>/boot/boot0</filename>.  The size and
+-	capability of <application>boot0</application> is restricted
+-	to 446 bytes due to the slice table and
+-	<literal>0x55AA</literal> identifier at the end of the
+-	<acronym>MBR</acronym>.  If <application>boot0</application>
+-	and multiple operating systems are installed, a message
+-	similar to this example will be displayed at boot time:</para>
++        is based on <filename>/boot/boot0</filename>.  The size and
++        capability of <application>boot0</application> is restricted
++        to 446 bytes due to the slice table and
++        <literal>0x55AA</literal> identifier at the end of the
++        <acronym>MBR</acronym>.  If <application>boot0</application>
++        and multiple operating systems are installed, a message
++        similar to this example will be displayed at boot time:</para>
+ 
+       <example xml:id="boot-boot0-example">
+-	<title><filename>boot0</filename> Screenshot</title>
++        <title><filename>boot0</filename> Screenshot</title>
+ 
+-	<screen>F1 Win
++        <screen>F1 Win
+ F2 FreeBSD
+ 
+ Default: F2</screen>
+@@ -196,21 +196,21 @@
+       </example>
+ 
+       <para>Other operating systems will overwrite an existing
+-	<acronym>MBR</acronym> if they are installed after &os;.  If
+-	this happens, or to replace the existing
+-	<acronym>MBR</acronym> with the &os; <acronym>MBR</acronym>,
+-	use the following command:</para>
++        <acronym>MBR</acronym> if they are installed after &os;.  If
++        this happens, or to replace the existing
++        <acronym>MBR</acronym> with the &os; <acronym>MBR</acronym>,
++        use the following command:</para>
+ 
+       <screen>&prompt.root; <userinput>fdisk -B -b /boot/boot0 <replaceable>device</replaceable></userinput></screen>
+ 
+       <para>where <replaceable>device</replaceable> is the boot disk,
+-	such as <filename>ad0</filename> for the first
+-	<acronym>IDE</acronym> disk, <filename>ad2</filename> for the
+-	first <acronym>IDE</acronym> disk on a second
+-	<acronym>IDE</acronym> controller, or <filename>da0</filename>
+-	for the first <acronym>SCSI</acronym> disk.  To create a
+-	custom configuration of the <acronym>MBR</acronym>, refer to
+-	&man.boot0cfg.8;.</para>
++        such as <filename>ad0</filename> for the first
++        <acronym>IDE</acronym> disk, <filename>ad2</filename> for the
++        first <acronym>IDE</acronym> disk on a second
++        <acronym>IDE</acronym> controller, or <filename>da0</filename>
++        for the first <acronym>SCSI</acronym> disk.  To create a
++        custom configuration of the <acronym>MBR</acronym>, refer to
++        &man.boot0cfg.8;.</para>
+     </sect2>
+ 
+     <sect2 xml:id="boot-boot1">
+@@ -217,57 +217,57 @@
+       <title>Stage One and Stage Two</title>
+ 
+       <para>Conceptually, the first and second stages are part of the
+-	same program on the same area of the disk.  Because of space
+-	constraints, they have been split into two, but are always
+-	installed together.  They are copied from the combined
+-	<filename>/boot/boot</filename> by the &os; installer or
+-	<command>bsdlabel</command>.</para>
++        same program on the same area of the disk.  Because of space
++        constraints, they have been split into two, but are always
++        installed together.  They are copied from the combined
++        <filename>/boot/boot</filename> by the &os; installer or
++        <command>bsdlabel</command>.</para>
+ 
+       <para>These two stages are located outside file systems, in the
+-	first track of the boot slice, starting with the first sector.
+-	This is where <application>boot0</application>, or any other
+-	boot manager, expects to find a program to run which will
+-	continue the boot process.</para>
++        first track of the boot slice, starting with the first sector.
++        This is where <application>boot0</application>, or any other
++        boot manager, expects to find a program to run which will
++        continue the boot process.</para>
+ 
+       <para>The first stage, <filename>boot1</filename>, is very
+-	simple, since it can only be 512 bytes in size.  It knows just
+-	enough about the &os; <firstterm>bsdlabel</firstterm>, which
+-	stores information about the slice, to find and execute
+-	<filename>boot2</filename>.</para>
++        simple, since it can only be 512 bytes in size.  It knows just
++        enough about the &os; <firstterm>bsdlabel</firstterm>, which
++        stores information about the slice, to find and execute
++        <filename>boot2</filename>.</para>
+ 
+       <para>Stage two, <filename>boot2</filename>, is slightly more
+-	sophisticated, and understands the &os; file system enough to
+-	find files.  It can provide a simple interface to choose the
+-	kernel or loader to run.  It runs
+-	<application>loader</application>, which is much more
+-	sophisticated and provides a boot configuration file.  If the
+-	boot process is interrupted at stage two, the following
+-	interactive screen is displayed:</para>
++        sophisticated, and understands the &os; file system enough to
++        find files.  It can provide a simple interface to choose the
++        kernel or loader to run.  It runs
++        <application>loader</application>, which is much more
++        sophisticated and provides a boot configuration file.  If the
++        boot process is interrupted at stage two, the following
++        interactive screen is displayed:</para>
+ 
+       <example xml:id="boot-boot2-example">
+-	<title><filename>boot2</filename> Screenshot</title>
++        <title><filename>boot2</filename> Screenshot</title>
+ 
+-	<screen>&gt;&gt; FreeBSD/i386 BOOT
++        <screen>&gt;&gt; FreeBSD/i386 BOOT
+ Default: 0:ad(0,a)/boot/loader
+ boot:</screen>
+       </example>
+ 
+       <para>To replace the installed <filename>boot1</filename> and
+-	<filename>boot2</filename>, use <command>bsdlabel</command>,
+-	where <replaceable>diskslice</replaceable> is the disk and
+-	slice to boot from, such as <filename>ad0s1</filename> for the
+-	first slice on the first <acronym>IDE</acronym> disk:</para>
++        <filename>boot2</filename>, use <command>bsdlabel</command>,
++        where <replaceable>diskslice</replaceable> is the disk and
++        slice to boot from, such as <filename>ad0s1</filename> for the
++        first slice on the first <acronym>IDE</acronym> disk:</para>
+ 
+       <screen>&prompt.root; <userinput>bsdlabel -B <replaceable>diskslice</replaceable></userinput></screen>
+ 
+       <warning>
+-	<para>If just the disk name is used, such as
+-	  <filename>ad0</filename>, <command>bsdlabel</command> will
+-	  create the disk in <quote>dangerously dedicated
+-	    mode</quote>, without slices.  This is probably not the
+-	  desired action, so double check the
+-	  <replaceable>diskslice</replaceable> before pressing
+-	  <keycap>Return</keycap>.</para>
++        <para>If just the disk name is used, such as
++          <filename>ad0</filename>, <command>bsdlabel</command> will
++          create the disk in <quote>dangerously dedicated
++            mode</quote>, without slices.  This is probably not the
++          desired action, so double check the
++          <replaceable>diskslice</replaceable> before pressing
++          <keycap>Return</keycap>.</para>
+       </warning>
+     </sect2>
+ 
+@@ -277,188 +277,188 @@
+       <indexterm><primary>boot-loader</primary></indexterm>
+ 
+       <para>The <application>loader</application> is the final stage
+-	of the three-stage bootstrap process.  It is located on the
+-	file system, usually as
+-	<filename>/boot/loader</filename>.</para>
++        of the three-stage bootstrap process.  It is located on the
++        file system, usually as
++        <filename>/boot/loader</filename>.</para>
+ 
+       <para>The <application>loader</application> is intended as an
+-	interactive method for configuration, using a built-in command
+-	set, backed up by a more powerful interpreter which has a more
+-	complex command set.</para>
++        interactive method for configuration, using a built-in command
++        set, backed up by a more powerful interpreter which has a more
++        complex command set.</para>
+ 
+       <para>During initialization, <application>loader</application>
+-	will probe for a console and for disks, and figure out which
+-	disk it is booting from.  It will set variables accordingly,
+-	and an interpreter is started where user commands can be
+-	passed from a script or interactively.</para>
++        will probe for a console and for disks, and figure out which
++        disk it is booting from.  It will set variables accordingly,
++        and an interpreter is started where user commands can be
++        passed from a script or interactively.</para>
+ 
+       <indexterm><primary>loader</primary></indexterm>
+       <indexterm><primary>loader configuration</primary></indexterm>
+ 
+       <para>The <application>loader</application> will then read
+-	<filename>/boot/loader.rc</filename>, which by default reads
+-	in <filename>/boot/defaults/loader.conf</filename> which sets
+-	reasonable defaults for variables and reads
+-	<filename>/boot/loader.conf</filename> for local changes to
+-	those variables.  <filename>loader.rc</filename> then acts on
+-	these variables, loading whichever modules and kernel are
+-	selected.</para>
++        <filename>/boot/loader.rc</filename>, which by default reads
++        in <filename>/boot/defaults/loader.conf</filename> which sets
++        reasonable defaults for variables and reads
++        <filename>/boot/loader.conf</filename> for local changes to
++        those variables.  <filename>loader.rc</filename> then acts on
++        these variables, loading whichever modules and kernel are
++        selected.</para>
+ 
+       <para>Finally, by default, <application>loader</application>
+-	issues a 10 second wait for key presses, and boots the kernel
+-	if it is not interrupted.  If interrupted, the user is
+-	presented with a prompt which understands the command set,
+-	where the user may adjust variables, unload all modules, load
+-	modules, and then finally boot or reboot.  <xref
+-	  linkend="boot-loader-commands"/> lists the most commonly
+-	used <application>loader</application> commands.  For a
+-	complete discussion of all available commands, refer to
+-	&man.loader.8;.</para>
++        issues a 10 second wait for key presses, and boots the kernel
++        if it is not interrupted.  If interrupted, the user is
++        presented with a prompt which understands the command set,
++        where the user may adjust variables, unload all modules, load
++        modules, and then finally boot or reboot.  <xref
++          linkend="boot-loader-commands"/> lists the most commonly
++        used <application>loader</application> commands.  For a
++        complete discussion of all available commands, refer to
++        &man.loader.8;.</para>
+ 
+       <table xml:id="boot-loader-commands" frame="none" pgwide="1">
+-	<title>Loader Built-In Commands</title>
++        <title>Loader Built-In Commands</title>
+ 
+-	<tgroup cols="2">
+-	  <thead>
+-	    <row>
+-	      <entry>Variable</entry>
+-	      <entry>Description</entry>
+-	    </row>
+-	  </thead>
++        <tgroup cols="2">
++          <thead>
++            <row>
++              <entry>Variable</entry>
++              <entry>Description</entry>
++            </row>
++          </thead>
+ 
+-	  <tbody>
+-	    <row>
+-	      <entry>autoboot
+-		<replaceable>seconds</replaceable></entry>
+-	      <entry>Proceeds to boot the kernel if not interrupted
+-		within the time span given, in seconds.  It displays a
+-		countdown, and the default time span is 10
+-		seconds.</entry>
+-	    </row>
++          <tbody>
++            <row>
++              <entry>autoboot
++                <replaceable>seconds</replaceable></entry>
++              <entry>Proceeds to boot the kernel if not interrupted
++                within the time span given, in seconds.  It displays a
++                countdown, and the default time span is 10
++                seconds.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>boot
+-		<optional><replaceable>-options</replaceable></optional>
+-		<optional><replaceable>kernelname</replaceable></optional></entry>
+-	      <entry>Immediately proceeds to boot the kernel, with
+-		any specified options or kernel name.  Providing a
+-		kernel name on the command-line is only applicable
+-		after an <command>unload</command> has been issued.
+-		Otherwise, the previously-loaded kernel will be
+-		used.  If <emphasis>kernelname</emphasis> is not
+-		qualified it will be searched under
+-		<emphasis>/boot/kernel</emphasis> and
+-		<emphasis>/boot/modules</emphasis>.</entry>
+-	    </row>
++            <row>
++              <entry>boot
++                <optional><replaceable>-options</replaceable></optional>
++                <optional><replaceable>kernelname</replaceable></optional></entry>
++              <entry>Immediately proceeds to boot the kernel, with
++                any specified options or kernel name.  Providing a
++                kernel name on the command-line is only applicable
++                after an <command>unload</command> has been issued.
++                Otherwise, the previously-loaded kernel will be
++                used.  If <emphasis>kernelname</emphasis> is not
++                qualified, it will be searched under
++                <emphasis>/boot/kernel</emphasis> and
++                <emphasis>/boot/modules</emphasis>.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>boot-conf</entry>
+-	      <entry>Goes through the same automatic configuration of
+-		modules based on specified variables, most commonly
+-		<envar>kernel</envar>.  This only makes sense if
+-		<command>unload</command> is used first, before
+-		changing some variables.</entry>
+-	    </row>
++            <row>
++              <entry>boot-conf</entry>
++              <entry>Goes through the same automatic configuration of
++                modules based on specified variables, most commonly
++                <envar>kernel</envar>.  This only makes sense if
++                <command>unload</command> is used first, before
++                changing some variables.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>help
+-		<optional><replaceable>topic</replaceable></optional></entry>
+-	      <entry>Shows help messages read from
+-		<filename>/boot/loader.help</filename>.  If the topic
+-		given is <literal>index</literal>, the list of
+-		available topics is displayed.</entry>
+-	    </row>
++            <row>
++              <entry>help
++                <optional><replaceable>topic</replaceable></optional></entry>
++              <entry>Shows help messages read from
++                <filename>/boot/loader.help</filename>.  If the topic
++                given is <literal>index</literal>, the list of
++                available topics is displayed.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>include <replaceable>filename</replaceable>
+-		&hellip;</entry>
+-	      <entry>Reads the specified file and interprets it line
+-		by line.  An error immediately stops the
+-		<command>include</command>.</entry>
+-	    </row>
++            <row>
++              <entry>include <replaceable>filename</replaceable>
++                &hellip;</entry>
++              <entry>Reads the specified file and interprets it line
++                by line.  An error immediately stops the
++                <command>include</command>.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>load <optional>-t
+-		  <replaceable>type</replaceable></optional>
+-		<replaceable>filename</replaceable></entry>
+-	      <entry>Loads the kernel, kernel module, or file of the
+-		type given, with the specified filename.  Any
+-		arguments after <replaceable>filename</replaceable>
+-		are passed to the file.  If
+-		<emphasis>filename</emphasis> is not qualified it
+-		will be searched under
+-		<emphasis>/boot/kernel</emphasis>
+-		and <emphasis>/boot/modules</emphasis>.</entry>
+-	    </row>
++            <row>
++              <entry>load <optional>-t
++                  <replaceable>type</replaceable></optional>
++                <replaceable>filename</replaceable></entry>
++              <entry>Loads the kernel, kernel module, or file of the
++                type given, with the specified filename.  Any
++                arguments after <replaceable>filename</replaceable>
++                are passed to the file.  If
++                <emphasis>filename</emphasis> is not qualified, it
++                will be searched under
++                <emphasis>/boot/kernel</emphasis>
++                and <emphasis>/boot/modules</emphasis>.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>ls <optional>-l</optional>
+-		<optional><replaceable>path</replaceable></optional></entry>
+-	      <entry>Displays a listing of files in the given path, or
+-		the root directory, if the path is not specified.  If
+-		<option>-l</option> is specified, file sizes will
+-		also be shown.</entry>
+-	    </row>
++            <row>
++              <entry>ls <optional>-l</optional>
++                <optional><replaceable>path</replaceable></optional></entry>
++              <entry>Displays a listing of files in the given path, or
++                the root directory, if the path is not specified.  If
++                <option>-l</option> is specified, file sizes will
++                also be shown.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>lsdev <optional>-v</optional></entry>
+-	      <entry>Lists all of the devices from which it may be
+-		possible to load modules.  If <option>-v</option> is
+-		specified, more details are printed.</entry>
+-	    </row>
++            <row>
++              <entry>lsdev <optional>-v</optional></entry>
++              <entry>Lists all of the devices from which it may be
++                possible to load modules.  If <option>-v</option> is
++                specified, more details are printed.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>lsmod <optional>-v</optional></entry>
+-	      <entry>Displays loaded modules.  If <option>-v</option>
+-		is specified, more details are shown.</entry>
+-	    </row>
++            <row>
++              <entry>lsmod <optional>-v</optional></entry>
++              <entry>Displays loaded modules.  If <option>-v</option>
++                is specified, more details are shown.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>more <replaceable>filename</replaceable></entry>
+-	      <entry>Displays the files specified, with a pause at
+-		each <varname>LINES</varname> displayed.</entry>
+-	    </row>
++            <row>
++              <entry>more <replaceable>filename</replaceable></entry>
++              <entry>Displays the files specified, with a pause at
++                each <varname>LINES</varname> displayed.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>reboot</entry>
+-	      <entry>Immediately reboots the system.</entry>
+-	    </row>
++            <row>
++              <entry>reboot</entry>
++              <entry>Immediately reboots the system.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>set <replaceable>variable</replaceable>, set
+-		<replaceable>variable</replaceable>=<replaceable>value</replaceable></entry>
+-	      <entry>Sets the specified environment variables.</entry>
+-	    </row>
++            <row>
++              <entry>set <replaceable>variable</replaceable>, set
++                <replaceable>variable</replaceable>=<replaceable>value</replaceable></entry>
++              <entry>Sets the specified environment variables.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry>unload</entry>
+-	      <entry>Removes all loaded modules.</entry>
+-	    </row>
+-	  </tbody>
+-	</tgroup>
++            <row>
++              <entry>unload</entry>
++              <entry>Removes all loaded modules.</entry>
++            </row>
++          </tbody>
++        </tgroup>
+       </table>
+ 
+       <para>Here are some practical examples of loader usage.  To boot
+-	the usual kernel in single-user mode
+-	<indexterm><primary>single-user
+-	  mode</primary></indexterm>:</para>
++        the usual kernel in single-user mode
++        <indexterm><primary>single-user
++          mode</primary></indexterm>:</para>
+ 
+       <screen><userinput>boot -s</userinput></screen>
+ 
+       <para>To unload the usual kernel and modules and then load the
+-	previous or another, specified kernel:</para>
++        previous or another, specified kernel:</para>
+ 
+       <screen><userinput>unload</userinput>
+ <userinput>load <replaceable>kernel.old</replaceable></userinput></screen>
+ 
+       <para>Use <filename>kernel.GENERIC</filename> to refer to the
+-	default kernel that comes with an installation, or
+-	<filename>kernel.old</filename>, to refer to the previously
+-	installed kernel before a system upgrade or before configuring
+-	a custom kernel.</para>
++        default kernel that comes with an installation, or
++        <filename>kernel.old</filename>, to refer to the previously
++        installed kernel before a system upgrade or before configuring
++        a custom kernel.</para>
+ 
+       <para>Use the following to load the usual modules with another
+-	kernel:</para>
++        kernel:</para>
+ 
+       <screen><userinput>unload</userinput>
+ <userinput>set kernel="<replaceable>kernel.old</replaceable>"</userinput>
+@@ -469,8 +469,8 @@
+       <screen><userinput>load -t userconfig_script <replaceable>/boot/kernel.conf</replaceable></userinput></screen>
+ 
+       <indexterm>
+-	<primary>kernel</primary>
+-	<secondary>boot interaction</secondary>
++        <primary>kernel</primary>
++        <secondary>boot interaction</secondary>
+       </indexterm>
+     </sect2>
+ 
+@@ -478,163 +478,163 @@
+       <title>Last Stage</title>
+ 
+       <indexterm>
+-	<primary>&man.init.8;</primary>
++        <primary>&man.init.8;</primary>
+       </indexterm>
+ 
+       <para>Once the kernel is loaded by either
+-	<application>loader</application> or by
+-	<application>boot2</application>, which bypasses
+-	<application>loader</application>, it examines any boot flags
+-	and adjusts its behavior as necessary.  <xref
+-	  linkend="boot-kernel"/> lists the commonly used boot flags.
+-	Refer to &man.boot.8; for more information on the other boot
+-	flags.</para>
++        <application>loader</application> or by
++        <application>boot2</application>, which bypasses
++        <application>loader</application>, it examines any boot flags
++        and adjusts its behavior as necessary.  <xref
++          linkend="boot-kernel"/> lists the commonly used boot flags.
++        Refer to &man.boot.8; for more information on the other boot
++        flags.</para>
+ 
+       <indexterm>
+-	<primary>kernel</primary>
+-	<secondary>bootflags</secondary>
++        <primary>kernel</primary>
++        <secondary>bootflags</secondary>
+       </indexterm>
+ 
+       <table xml:id="boot-kernel" frame="none" pgwide="1">
+-	<title>Kernel Interaction During Boot</title>
++        <title>Kernel Interaction During Boot</title>
+ 
+-	<tgroup cols="2">
+-	  <thead>
+-	    <row>
+-	      <entry>Option</entry>
+-	      <entry>Description</entry>
+-	    </row>
+-	  </thead>
++        <tgroup cols="2">
++          <thead>
++            <row>
++              <entry>Option</entry>
++              <entry>Description</entry>
++            </row>
++          </thead>
+ 
+-	  <tbody>
+-	    <row>
+-	      <entry><option>-a</option></entry>
+-	      <entry>During kernel initialization, ask for the device
+-		to mount as the root file system.</entry>
+-	    </row>
++          <tbody>
++            <row>
++              <entry><option>-a</option></entry>
++              <entry>During kernel initialization, ask for the device
++                to mount as the root file system.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry><option>-C</option></entry>
+-	      <entry>Boot the root file system from a
+-		<acronym>CDROM</acronym>.</entry>
+-	    </row>
++            <row>
++              <entry><option>-C</option></entry>
++              <entry>Boot the root file system from a
++                <acronym>CDROM</acronym>.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry><option>-s</option></entry>
+-	      <entry>Boot into single-user mode.</entry>
+-	    </row>
++            <row>
++              <entry><option>-s</option></entry>
++              <entry>Boot into single-user mode.</entry>
++            </row>
+ 
+-	    <row>
+-	      <entry><option>-v</option></entry>
+-	      <entry>Be more verbose during kernel startup.</entry>
+-	    </row>
+-	  </tbody>
+-	</tgroup>
++            <row>
++              <entry><option>-v</option></entry>
++              <entry>Be more verbose during kernel startup.</entry>
++            </row>
++          </tbody>
++        </tgroup>
+       </table>
+ 
+       <para>Once the kernel has finished booting, it passes control to
+-	the user process &man.init.8;, which is located at
+-	<filename>/sbin/init</filename>, or the program path specified
+-	in the <envar>init_path</envar> variable in
+-	<command>loader</command>.  This is the last stage of the boot
+-	process.</para>
++        the user process &man.init.8;, which is located at
++        <filename>/sbin/init</filename>, or the program path specified
++        in the <envar>init_path</envar> variable in
++        <command>loader</command>.  This is the last stage of the boot
++        process.</para>
+ 
+       <para>The boot sequence makes sure that the file systems
+-	available on the system are consistent.  If a
+-	<acronym>UFS</acronym> file system is not, and
+-	<command>fsck</command> cannot fix the inconsistencies,
+-	<application>init</application> drops the system into
+-	single-user mode so that the system administrator can resolve
+-	the problem directly.  Otherwise, the system boots into
+-	multi-user mode.</para>
++        available on the system are consistent.  If a
++        <acronym>UFS</acronym> file system is not, and
++        <command>fsck</command> cannot fix the inconsistencies,
++        <application>init</application> drops the system into
++        single-user mode so that the system administrator can resolve
++        the problem directly.  Otherwise, the system boots into
++        multi-user mode.</para>
+ 
+       <sect3 xml:id="boot-singleuser">
+-	<title>Single-User Mode</title>
++        <title>Single-User Mode</title>
+ 
+-	<indexterm><primary>single-user mode</primary></indexterm>
+-	<indexterm><primary>console</primary></indexterm>
++        <indexterm><primary>single-user mode</primary></indexterm>
++        <indexterm><primary>console</primary></indexterm>
+ 
+-	<para>A user can specify this mode by booting with
+-	  <option>-s</option> or by setting the
+-	  <envar>boot_single</envar> variable in
+-	  <application>loader</application>.  It can also be reached
+-	  by running <command>shutdown now</command> from multi-user
+-	  mode.  Single-user mode begins with this message:</para>
++        <para>A user can specify this mode by booting with
++          <option>-s</option> or by setting the
++          <envar>boot_single</envar> variable in
++          <application>loader</application>.  It can also be reached
++          by running <command>shutdown now</command> from multi-user
++          mode.  Single-user mode begins with this message:</para>
+ 
+-	<programlisting>Enter full pathname of shell or RETURN for /bin/sh:</programlisting>
++        <programlisting>Enter full pathname of shell or RETURN for /bin/sh:</programlisting>
+ 
+-	<para>If the user presses <keycap>Enter</keycap>, the system
+-	  will enter the default Bourne shell.  To specify a different
+-	  shell, input the full path to the shell.</para>
++        <para>If the user presses <keycap>Enter</keycap>, the system
++          will enter the default Bourne shell.  To specify a different
++          shell, input the full path to the shell.</para>
+ 
+-	<para>Single-user mode is usually used to repair a system that
+-	  will not boot due to an inconsistent file system or an error
+-	  in a boot configuration file.  It can also be used to reset
+-	  the <systemitem class="username">root</systemitem> password
+-	  when it is unknown.  These actions are possible as the
+-	  single-user mode prompt gives full, local access to the
+-	  system and its configuration files.  There is no networking
+-	  in this mode.</para>
++        <para>Single-user mode is usually used to repair a system that
++          will not boot due to an inconsistent file system or an error
++          in a boot configuration file.  It can also be used to reset
++          the <systemitem class="username">root</systemitem> password
++          when it is unknown.  These actions are possible as the
++          single-user mode prompt gives full, local access to the
++          system and its configuration files.  There is no networking
++          in this mode.</para>
+ 
+-	<para>While single-user mode is useful for repairing a system,
+-	  it poses a security risk unless the system is in a
+-	  physically secure location.  By default, any user who can
+-	  gain physical access to a system will have full control of
+-	  that system after booting into single-user mode.</para>
++        <para>While single-user mode is useful for repairing a system,
++          it poses a security risk unless the system is in a
++          physically secure location.  By default, any user who can
++          gain physical access to a system will have full control of
++          that system after booting into single-user mode.</para>
+ 
+-	<para>If the system <literal>console</literal> is changed to
+-	  <literal>insecure</literal> in
+-	  <filename>/etc/ttys</filename>, the system will first prompt
+-	  for the <systemitem class="username">root</systemitem>
+-	  password before initiating single-user mode.  This adds a
+-	  measure of security while removing the ability to reset the
+-	  <systemitem class="username">root</systemitem> password when
+-	  it is unknown.</para>
++        <para>If the system <literal>console</literal> is changed to
++          <literal>insecure</literal> in
++          <filename>/etc/ttys</filename>, the system will first prompt
++          for the <systemitem class="username">root</systemitem>
++          password before initiating single-user mode.  This adds a
++          measure of security while removing the ability to reset the
++          <systemitem class="username">root</systemitem> password when
++          it is unknown.</para>
+ 
+-	<example xml:id="boot-insecure-console">
+-	  <title>Configuring an Insecure Console in
+-	    <filename>/etc/ttys</filename></title>
++        <example xml:id="boot-insecure-console">
++          <title>Configuring an Insecure Console in
++            <filename>/etc/ttys</filename></title>
+ 
+-	  <programlisting># name  getty                           type    status          comments
++          <programlisting># name  getty                           type    status          comments
+ #
+ # If console is marked "insecure", then init will ask for the root password
+ # when going to single-user mode.
+ console none                            unknown off <replaceable>insecure</replaceable></programlisting>
+-	</example>
++        </example>
+ 
+-	<para>An <literal>insecure</literal> console means that
+-	  physical security to the console is considered to be
+-	  insecure, so only someone who knows the <systemitem
+-	    class="username">root</systemitem> password may use
+-	  single-user mode.</para>
++        <para>An <literal>insecure</literal> console means that
++          physical security to the console is considered to be
++          insecure, so only someone who knows the <systemitem
++            class="username">root</systemitem> password may use
++          single-user mode.</para>
+       </sect3>
+ 
+       <sect3 xml:id="boot-multiuser">
+-	<title>Multi-User Mode</title>
++        <title>Multi-User Mode</title>
+ 
+-	<indexterm><primary>multi-user mode</primary></indexterm>
++        <indexterm><primary>multi-user mode</primary></indexterm>
+ 
+-	<para>If <application>init</application> finds the file
+-	  systems to be in order, or once the user has finished their
+-	  commands in single-user mode and has typed
+-	  <command>exit</command> to leave single-user mode, the
+-	  system enters multi-user mode, in which it starts the
+-	  resource configuration of the system.</para>
++        <para>If <application>init</application> finds the file
++          systems to be in order, or once the user has finished their
++          commands in single-user mode and has typed
++          <command>exit</command> to leave single-user mode, the
++          system enters multi-user mode, in which it starts the
++          resource configuration of the system.</para>
+ 
+-	<indexterm><primary>rc files</primary></indexterm>
++        <indexterm><primary>rc files</primary></indexterm>
+ 
+-	<para>The resource configuration system reads in configuration
+-	  defaults from <filename>/etc/defaults/rc.conf</filename> and
+-	  system-specific details from
+-	  <filename>/etc/rc.conf</filename>.  It then proceeds to
+-	  mount the system file systems listed in
+-	  <filename>/etc/fstab</filename>.  It starts up networking
+-	  services, miscellaneous system daemons, then the startup
+-	  scripts of locally installed packages.</para>
++        <para>The resource configuration system reads in configuration
++          defaults from <filename>/etc/defaults/rc.conf</filename> and
++          system-specific details from
++          <filename>/etc/rc.conf</filename>.  It then proceeds to
++          mount the system file systems listed in
++          <filename>/etc/fstab</filename>.  It starts up networking
++          services, miscellaneous system daemons, then the startup
++          scripts of locally installed packages.</para>
+ 
+-	<para>To learn more about the resource configuration system,
+-	  refer to &man.rc.8; and examine the scripts located in
+-	  <filename>/etc/rc.d</filename>.</para>
++        <para>To learn more about the resource configuration system,
++          refer to &man.rc.8; and examine the scripts located in
++          <filename>/etc/rc.d</filename>.</para>
+       </sect3>
+     </sect2>
+   </sect1>
+@@ -650,13 +650,13 @@
+       <title>Configuring Boot Time Splash Screens</title>
+ 
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Joseph J.</firstname>
+-	    <surname>Barbish</surname>
+-	  </personname>
+-	  <contrib>Contributed by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Joseph J.</firstname>
++            <surname>Barbish</surname>
++          </personname>
++          <contrib>Contributed by </contrib>
++        </author>
+       </authorgroup>
+     </info>
+ 
+@@ -691,7 +691,7 @@
+ 
+     <para>Sample splash screen files can be downloaded from the
+       gallery at <link
+-	xlink:href="http://artwork.freebsdgr.org/node/3/">http://artwork.freebsdgr.org</link>.
++        xlink:href="http://artwork.freebsdgr.org/node/3/">http://artwork.freebsdgr.org</link>.
+       By installing the <package>sysutils/bsd-splash-changer</package>
+       package or port, a random splash image from a collection will
+       display at boot.</para>
+@@ -723,7 +723,7 @@
+ bitmap_name="/boot/<replaceable>splash.pcx</replaceable>"</programlisting>
+ 
+     <para>To instead use ASCII art in the <link
+-	xlink:href="https://en.wikipedia.org/wiki/TheDraw">https://en.wikipedia.org/wiki/TheDraw</link>
++        xlink:href="https://en.wikipedia.org/wiki/TheDraw">https://en.wikipedia.org/wiki/TheDraw</link>
+       format:</para>
+ 
+     <programlisting>splash_txt="YES"
+@@ -748,24 +748,24 @@
+     <variablelist>
+       <varlistentry><term><literal>beastie_disable="YES"</literal></term>
+ 
+-	<listitem>
+-	  <para>This will stop the boot options menu from being
+-	    displayed, but the timed wait count down prompt will still
+-	    be present.  Even with the display of the boot options
+-	    menu disabled, entering an option selection at the timed
+-	    wait count down prompt will enact the corresponding boot
+-	    option.</para>
+-	</listitem>
++        <listitem>
++          <para>This will stop the boot options menu from being
++            displayed, but the timed wait count down prompt will still
++            be present.  Even with the display of the boot options
++            menu disabled, entering an option selection at the timed
++            wait count down prompt will enact the corresponding boot
++            option.</para>
++        </listitem>
+       </varlistentry>
+ 
+       <varlistentry><term><literal>loader_logo="beastie"</literal></term>
+ 
+-	<listitem>
+-	  <para>This will replace the default words
+-	    <quote>&os;</quote>, which are displayed to the right of
+-	    the boot options menu, with the colored beastie
+-	    logo.</para>
+-	</listitem>
++        <listitem>
++          <para>This will replace the default words
++            <quote>&os;</quote>, which are displayed to the right of
++            the boot options menu, with the colored beastie
++            logo.</para>
++        </listitem>
+       </varlistentry>
+     </variablelist>
+ 
+@@ -778,13 +778,13 @@
+       <title>Device Hints</title>
+ 
+       <authorgroup>
+-	<author>
+-	  <personname>
+-	    <firstname>Tom</firstname>
+-	    <surname>Rhodes</surname>
+-	  </personname>
+-	  <contrib>Contributed by </contrib>
+-	</author>
++        <author>
++          <personname>
++            <firstname>Tom</firstname>
++            <surname>Rhodes</surname>
++          </personname>
++          <contrib>Contributed by </contrib>
++        </author>
+       </authorgroup>
+     </info>
+ 
+@@ -828,38 +828,38 @@
+ 
+     <itemizedlist>
+       <listitem>
+-	<para><literal>at</literal>: specifies the bus which the
+-	  device is attached to.</para>
++        <para><literal>at</literal>: specifies the bus which the
++          device is attached to.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para><literal>port</literal>: specifies the start address of
+-	  the <acronym>I/O</acronym> to be used.</para>
++        <para><literal>port</literal>: specifies the start address of
++          the <acronym>I/O</acronym> to be used.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para><literal>irq</literal>: specifies the interrupt request
+-	  number to be used.</para>
++        <para><literal>irq</literal>: specifies the interrupt request
++          number to be used.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para><literal>drq</literal>: specifies the DMA channel
+-	  number.</para>
++        <para><literal>drq</literal>: specifies the DMA channel
++          number.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para><literal>maddr</literal>: specifies the physical memory
+-	  address occupied by the device.</para>
++        <para><literal>maddr</literal>: specifies the physical memory
++          address occupied by the device.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para><literal>flags</literal>: sets various flag bits for the
+-	  device.</para>
++        <para><literal>flags</literal>: sets various flag bits for the
++          device.</para>
+       </listitem>
+ 
+       <listitem>
+-	<para><literal>disabled</literal>: if set to
+-	  <literal>1</literal> the device is disabled.</para>
++        <para><literal>disabled</literal>: if set to
++          <literal>1</literal> the device is disabled.</para>
+       </listitem>
+     </itemizedlist>
+ 
+@@ -900,7 +900,7 @@
+ 
+     <note>
+       <para>Power management requires &man.acpi.4; to be loaded as
+-	a module or statically compiled into a custom kernel.</para>
++        a module or statically compiled into a custom kernel.</para>
+     </note>
+   </sect1>
+ </chapter>
