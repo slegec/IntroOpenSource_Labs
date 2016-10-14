@@ -1,0 +1,15 @@
+﻿Build started 10/14/2016 12:25:33 AM.
+     1>Project "C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step4\ALL_BUILD.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Win32\Debug\ALL_BUILD\ALL_BUILD.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule C:/CMS/RPI/2016_Fall_Semester/OpenSource/slegec/IntroOpenSource_Labs/Lab05/Step4/CMakeLists.txt
+         CMake does not need to re-run because C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step4\CMakeFiles\generate.stamp is up-to-date.
+       FinalizeBuildStatus:
+         Deleting file "Win32\Debug\ALL_BUILD\ALL_BUILD.unsuccessfulbuild".
+         Touching "Win32\Debug\ALL_BUILD\ALL_BUILD.lastbuildstate".
+     1>Done Building Project "C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step4\ALL_BUILD.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.12

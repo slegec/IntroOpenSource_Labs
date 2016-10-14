@@ -1,0 +1,30 @@
+﻿Build started 10/14/2016 12:23:56 AM.
+     1>Project "C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step3\Tutorial.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Tutorial.dir\Debug\Tutorial.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule C:/CMS/RPI/2016_Fall_Semester/OpenSource/slegec/IntroOpenSource_Labs/Lab05/Step3/CMakeLists.txt
+         CMake does not need to re-run because C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step3\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step3 /IC:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step3\MathFunctions /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Tutorial.dir\Debug\\" /Fd"Tutorial.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt tutorial.cxx
+         tutorial.cxx
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Tutorial.dir\Debug\Tutorial.exe.embed.manifest.res" Tutorial.dir\Debug\Tutorial_manifest.rc 
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step3\Debug\Tutorial.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib MathFunctions\Debug\MathFunctions.lib /MANIFEST /ManifestFile:"Tutorial.dir\Debug\Tutorial.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:/CMS/RPI/2016_Fall_Semester/OpenSource/slegec/IntroOpenSource_Labs/Lab05/Step3/Debug/Tutorial.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/CMS/RPI/2016_Fall_Semester/OpenSource/slegec/IntroOpenSource_Labs/Lab05/Step3/Debug/Tutorial.lib" /MACHINE:X86 Tutorial.dir\Debug\Tutorial.exe.embed.manifest.res
+         Tutorial.dir\Debug\tutorial.obj  /machine:X86 
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Tutorial.dir\Debug\Tutorial.exe.embed.manifest" /manifest Tutorial.dir\Debug\Tutorial.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Tutorial.dir\Debug\Tutorial.exe.embed.manifest.res" Tutorial.dir\Debug\Tutorial_manifest.rc 
+       LinkEmbedManifest:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step3\Debug\Tutorial.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib MathFunctions\Debug\MathFunctions.lib /MANIFEST /ManifestFile:"Tutorial.dir\Debug\Tutorial.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:/CMS/RPI/2016_Fall_Semester/OpenSource/slegec/IntroOpenSource_Labs/Lab05/Step3/Debug/Tutorial.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/CMS/RPI/2016_Fall_Semester/OpenSource/slegec/IntroOpenSource_Labs/Lab05/Step3/Debug/Tutorial.lib" /MACHINE:X86 Tutorial.dir\Debug\Tutorial.exe.embed.manifest.res
+         Tutorial.dir\Debug\tutorial.obj  /machine:X86 
+         Tutorial.vcxproj -> C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step3\Debug\Tutorial.exe
+       FinalizeBuildStatus:
+         Deleting file "Tutorial.dir\Debug\Tutorial.unsuccessfulbuild".
+         Touching "Tutorial.dir\Debug\Tutorial.lastbuildstate".
+     1>Done Building Project "C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step3\Tutorial.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.98

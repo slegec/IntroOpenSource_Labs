@@ -1,0 +1,22 @@
+﻿Build started 10/14/2016 12:27:17 AM.
+     1>Project "C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step5\MathFunctions\MathFunctions.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "MathFunctions.dir\Debug\MathFunctions.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule C:/CMS/RPI/2016_Fall_Semester/OpenSource/slegec/IntroOpenSource_Labs/Lab05/Step5/MathFunctions/CMakeLists.txt
+         CMake does not need to re-run because C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step5\MathFunctions\CMakeFiles\generate.stamp is up-to-date.
+         Generating Table.h
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step5 /IC:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step5\MathFunctions /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"MathFunctions.dir\Debug\\" /Fd"MathFunctions.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt mysqrt.cxx
+         mysqrt.cxx
+       Lib:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step5\MathFunctions\Debug\MathFunctions.lib" /NOLOGO MathFunctions.dir\Debug\mysqrt.obj  /machine:X86 
+         MathFunctions.vcxproj -> C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step5\MathFunctions\Debug\MathFunctions.lib
+       FinalizeBuildStatus:
+         Deleting file "MathFunctions.dir\Debug\MathFunctions.unsuccessfulbuild".
+         Touching "MathFunctions.dir\Debug\MathFunctions.lastbuildstate".
+     1>Done Building Project "C:\CMS\RPI\2016_Fall_Semester\OpenSource\slegec\IntroOpenSource_Labs\Lab05\Step5\MathFunctions\MathFunctions.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.21
