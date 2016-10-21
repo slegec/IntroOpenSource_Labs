@@ -4,6 +4,10 @@
 * First commit: Nov. 5, 2015
 * Latest commit: Oct. 2, 2016
 * Master, node_demo
+gitstats results:
+* Lines of code: 1169
+* Number of Contributors: 3
+
 
 7.) EMPAC+
 * Number of Contributors: 1
@@ -11,6 +15,9 @@
 * First commit: Sept. 13, 2016
 * Latest commit: Sept. 13, 2016
 * Master
+gitstats results:
+* Lines of code: 2
+* Number of Contributors: 1
 
 
 8.) Full Screen Pokemon
@@ -19,6 +26,9 @@
 *FIRST COMMIT: 11/23/2014
 *LATEST COMMIT: 10/10/2016
 *CURRENT BRANCHES: Badges, Bugs, Crappy-Sounds, Cycling, Fishing, master, mods, moves, remotePreThing, special-moves,var-to-let
+gitstats results:
+* Lines of code: 56,544
+* Number of Contributors: 8
 
 9.) GLS
 *NUMBER OF CONTRIBUTORS: 4
@@ -26,6 +36,9 @@
 *FIRST COMMIT:  3/13/2016
 *LATEST COMMIT: 10/12/2016
 *CURRENT BRANCHES: master, math, simple-driving-object, travis-shenanigans
+gitstats results:
+* Lines of code: 17,630
+* Number of Contributors: 5
 
 10.) Grove
 *NUMBER OF CONTRIBUTORS: 4
@@ -33,3 +46,19 @@
 *FIRST COMMIT: 8/23/2015
 *LATEST COMMIT: 10/4/2016
 *CURRENT BRANCHES: UI, developement, engines-max, master
+gitstats results:
+* Lines of code: 13,697
+* Number of Contributors: 5
+Comments:
+The numbers of projects and authors are different for all of the projects. All of the other information that was checked was the same
+
+
+#Part 2
+
+
+<img src="./Output.jpg" alt="Output" height="200">
+
+
+https://github.com/slegec/IntroOpenSource_Labs/blob/master/IntroOpenSource_Labs/Lab06/Part2/markdown.py
+
+https://github.com/slegec/IntroOpenSource_Labs/blob/master/IntroOpenSource_Labs/Lab06/Part2/test_markdown_unittest.py
