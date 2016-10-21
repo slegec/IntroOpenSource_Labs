@@ -56,7 +56,7 @@ The numbers of projects and authors are different for all of the projects. All o
 #Part 2
 
 
-<img src="./Output.jpg" alt="Output" height="200">
+<img src="./Part2/Output.jpg" alt="Output" height="200">
 
 
 https://github.com/slegec/IntroOpenSource_Labs/blob/master/IntroOpenSource_Labs/Lab06/Part2/markdown.py
