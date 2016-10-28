@@ -118,6 +118,18 @@ if __name__ == '__main__':
     sp=shortest_path(G, 'chaos', 'order')
     print "shortest path between 'chaos' and 'order' is:\n", sp
 
+    print
+    sp=shortest_path(G, 'nodes', 'graph')
+    print "shortest path between 'nodes' and 'graph' is:\n", sp
+
+    print
+    sp=shortest_path(G, 'moron', 'smart')
+    print "shortest path between 'moron' and 'smart' is:\n", sp
+
+    print
+    sp=shortest_path(G, 'pound', 'marks')
+    print "shortest path between 'pound' and 'marks' is:\n", sp
+
 
 
     # print number_connected_components(G),"connected components"
