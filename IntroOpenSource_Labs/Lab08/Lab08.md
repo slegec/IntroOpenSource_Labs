@@ -1,7 +1,7 @@
 #Lab 08
 
 
-
+'''
 > inspect(rules.sorted)
      lhs          rhs       support confidence lift
 [1]  {rank=4}  => {admit=0} 0.138   0.821      1.203
@@ -17,6 +17,7 @@
 [11] {rank=3}  => {admit=1} 0.070   0.231      0.729
 [12] {admit=1} => {rank=3}  0.070   0.220      0.729
 [13] {admit=0} => {rank=4}  0.138   0.201      1.203
+'''
 
 
 <img src="./Rplot.png" alt="Practice 1" height="300">
