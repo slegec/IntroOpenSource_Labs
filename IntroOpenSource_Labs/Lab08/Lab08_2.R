@@ -38,3 +38,4 @@ rules.all <- apriori(admissions,
                      appearance = list(rhs = c("admit=0"), default="lhs"))
 
 inspect(rules.all)
+

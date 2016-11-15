@@ -18,3 +18,4 @@ inspect(rules.pruned)
 
 library(arulesViz)
 plot(rules,method = "graph", control=list(type="items"))
+
